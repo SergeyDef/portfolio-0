@@ -1,0 +1,128 @@
+<template>
+	<div class="purpose">
+		<div class="purpose__block">
+			<div class="purpose__video">
+				<iframe id="youtubeiframe239582114" width="100%" height="100%" src="//www.youtube.com/embed/DxLK1bp_qPo?rel=0&amp;fmt=18&amp;html5=1&amp;showinfo=0" frameborder="0" allowfullscreen="" style="height: 315px;"></iframe>
+			</div>
+			<div class="purpose__purpose">
+				<div class="purpose__title">
+					<h3>Наша цель</h3>
+				</div>
+				<div class="purpose__words">
+					<p>Цель данного курса – осветить основные вопросы, возникающие у начинающих репетиторов. Здесь собраны самые главные практические рекомендации от опытных педагогов и психологов.</p>
+				</div>
+				<div class="purpose__signUp">
+					<button type="button" class="btn">Записаться</button>
+				</div>
+			</div>
+		</div>
+		<div class="purpose__image">
+			<img src="@/assets/purpose/Evol-04.webp">
+		</div>
+		<div class="purpose__info">
+			<div class="purpose__text purpose__text_bold">
+				<p>Мы поможем Вам освоить новую профессию: начиная от позиционирования себя на рынке труда и поиска клиентов, заканчивая профессиональным ростом и работой с группами учеников.</p>
+			</div>
+			<div class="purpose__text">
+				<p>Мы расскажем, с чего начать и как сразу выгодно поставить себя в условиях конкуренции среди репетиторов, как вести себя при первом контакте с новыми клиентами и как выстроить долгосрочное доверительное сотрудничество.</p>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'Purpose',
+  components: {
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '@/scss/_mixins.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+	.purpose{
+		width: 100%;
+		height: auto;
+
+		&__block{
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			background-color: #524c8c;
+			padding: 90px 0;
+		}
+		&__video{
+			width: 560px;
+		}
+		&__purpose{
+			width: 560px;
+			padding-left: 40px;
+		}
+		&__title{
+			padding-bottom: 20px;
+		}
+		&__title>h3{
+			text-align: left;
+			color: #fff;
+			line-height: 1.23;
+			font-weight: 700;
+			font-size: 36px;
+		}
+		&__words{
+			padding-bottom: 6px;
+		}
+		&__words>p{
+			font-size: 20px;
+			line-height: 1.55;
+			color: #fff;
+			text-align: left;
+			font-weight: 300;
+			font-family: 'Noto Sans',Arial,sans-serif;
+		}
+		&__image{
+			width: 100%;
+			height: auto;
+			margin: auto;
+			text-align: center;
+		}
+		&__image>img{
+			width: 100%;
+			height: auto;
+			margin: auto;
+			display: block;
+		}
+		.purpose__info{
+			width: 100%;
+			padding: 30px 0 120px 0;
+		}
+		.purpose__text{
+			width: 1160px;
+			margin: auto;
+			padding-top: 8px;
+			padding-bottom: 6px;
+		}
+		.purpose__text>p{
+			font-size: 24px;
+			line-height: 1.55;
+			text-align: center;
+			/*font-family: 'Noto Sans',Arial,sans-serif;*/
+			font-weight: 300;
+			color: #000;
+		}
+		.purpose__text_bold>p{
+			font-weight: 600;
+		}
+		.purpose__signUp{
+			display: flex;
+			justify-content: space-between;
+		}
+		.purpose__signUp>button{
+			@include buttonColor(40%, #fff, #333333);
+		}
+	}
+</style>

@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Header />
+    <Home />
+    <Purpose />
+    <JoinUs />
+    <Authors />
+    <Footer />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import Header from '@/components/Header.vue'
+  import Home from '@/views/Home.vue'
+  import Purpose from '@/views/Purpose.vue'
+  import JoinUs from '@/views/JoinUs.vue'
+  import Authors from '@/views/Authors.vue'
+  import Footer from '@/views/Footer.vue'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  export default{
+    components: {
+      Header,
+      Home,
+      Purpose,
+      JoinUs,
+      Authors,
+      Footer,
     }
   }
+
+</script>
+
+<style lang="scss">
+@import '@/scss/_mixins.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+#app {
 }
 </style>
