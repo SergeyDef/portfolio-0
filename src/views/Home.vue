@@ -47,7 +47,7 @@ export default {
 
 	.home{
 		width: 80%;
-		padding-top: 5%;
+		padding: 5% 0;
 		display: flex;
 		margin: auto;
 		justify-content: space-around;

@@ -182,4 +182,123 @@ export default {
 			/*font-family: 'Noto Sans',Arial,sans-serif;*/
 		}
 	}
+	@media (max-width: 1200px){
+		.join{
+
+			&__title{
+			}
+			&__title>h3{
+			}
+			&__subtitle{
+			}
+			&__subtitle>span{
+			}
+			&__content{
+				width: 800px;
+			}
+			&__block{
+			}
+			&__img{
+			}
+			&__img>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__text>p{
+			}
+		}
+	}
+	@media (max-width: 967px){
+		.join{
+
+			&__title{
+			}
+			&__title>h3{
+			}
+			&__subtitle{
+			}
+			&__subtitle>span{
+			}
+			&__content{
+			}
+			&__block{
+			}
+			&__img{
+			}
+			&__img>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__text>p{
+			}
+		}
+	}
+	@media (max-width: 667px){
+		.join{
+
+			&__title{
+			}
+			&__title>h3{
+			}
+			&__subtitle{
+			}
+			&__subtitle>span{
+			}
+			&__content{
+				width: 560px;
+			}
+			&__block{
+			}
+			&__img{
+			}
+			&__img>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__text>p{
+			}
+		}
+	}
+	@media (max-width: 467px){
+		.join{
+			padding-bottom: 60px;
+			
+			&__title{
+			}
+			&__title>h3{
+				font-size: 32px;
+			}
+			&__subtitle{
+				width: 370px;
+				padding-bottom: 30px;
+			}
+			&__subtitle>span{
+				font-size: 18px;
+			}
+			&__content{
+				width: 350px;
+			}
+			&__block{
+				width: 360px;
+			}
+			&__img{
+				width: 30px;
+				padding-bottom: 10px;
+			}
+			&__img>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__text>p{
+			}
+		}
+	}
 </style>

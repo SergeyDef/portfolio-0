@@ -286,4 +286,231 @@ export default {
 			}
 		}
 	}
+	@media (max-width: 1200px){
+		.footer{
+
+			&__content{
+			}
+			&__lists{
+			}
+			&__block{
+				width: 220px;
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+
+			}
+			&__item{
+
+			}
+			&__item>ul{
+
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+
+			}
+			&__item>ul>li>span{
+
+			}
+			&__regulations{
+			}
+			&__direction{
+			}
+			&__direction>span{
+			}
+			.feedback{
+				flex-direction: column;
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__massage{
+				}
+				&__button{
+				}
+				&__button>button{
+				}
+			}
+		}
+	}
+	@media (max-width: 967px){
+	}
+	@media (max-width: 667px){
+		.footer{
+			flex-direction: column;
+
+			&__content{
+				width: 90%;
+				margin: auto;
+				padding: 0;
+			}
+			&__lists{
+			}
+			&__block{
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+
+			}
+			&__item{
+
+			}
+			&__item>ul{
+
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+
+			}
+			&__item>ul>li>span{
+
+			}
+			&__regulations{
+			}
+			&__direction{
+			}
+			&__direction>span{
+			}
+			.feedback{
+
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__massage{
+				}
+				&__button{
+				}
+				&__button>button{
+				}
+			}
+		}
+	}
+	@media (max-width: 467px){
+		.footer{
+			padding-bottom: 150px;
+			
+			&__content{
+				order: 1;
+			}
+			&__lists{
+				padding-top: 30px;
+				flex-direction: column;
+				order: 123;
+			}
+			&__block{
+				width: 350px;
+				margin: auto;
+				margin-bottom: 30px;
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+
+			}
+			&__item{
+
+			}
+			&__item>ul{
+
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+
+			}
+			&__item>ul>li>span{
+
+			}
+			&__regulations{
+				flex-direction: column;
+			}
+			&__direction{
+				padding: 0;
+				width: 100%;
+				text-align: center;
+			}
+			&__direction>span{
+			}
+			.feedback{
+				width: 350px;
+				padding: 0;
+				margin: auto;
+				order: 0;
+
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__massage{
+				}
+				&__button{
+				}
+				&__button>button{
+				}
+			}
+		}
+	}
 </style>

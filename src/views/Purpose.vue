@@ -96,17 +96,17 @@ export default {
 			margin: auto;
 			display: block;
 		}
-		.purpose__info{
+		&__info{
 			width: 100%;
 			padding: 30px 0 120px 0;
 		}
-		.purpose__text{
+		&__text{
 			width: 1160px;
 			margin: auto;
 			padding-top: 8px;
 			padding-bottom: 6px;
 		}
-		.purpose__text>p{
+		&__text>p{
 			font-size: 24px;
 			line-height: 1.55;
 			text-align: center;
@@ -114,15 +114,142 @@ export default {
 			font-weight: 300;
 			color: #000;
 		}
-		.purpose__text_bold>p{
+		&__text_bold>p{
 			font-weight: 600;
 		}
-		.purpose__signUp{
+		&__signUp{
 			display: flex;
 			justify-content: space-between;
 		}
-		.purpose__signUp>button{
+		&__signUp>button{
 			@include buttonColor(40%, #fff, #333333);
+		}
+	}
+	@media (max-width: 1200px){
+	.purpose{
+
+		&__block{
+			}
+			&__video{
+				width: 500px;
+			}
+			&__purpose{
+				width: 500px;
+				padding-left: 30px;
+			}
+			&__title{
+			}
+			&__title>h3{
+			}
+			&__words{
+			}
+			&__words>p{
+			}
+			&__image{
+			}
+			&__image>img{
+			}
+			&__info{
+			}
+			&__text{
+				width: 800px;
+			}
+			&__text>p{
+			}
+			&__text_bold>p{
+			}
+			&__signUp{
+			}
+			&__signUp>button{
+			}
+		}
+	}
+	@media (max-width: 967px){
+	}
+	@media (max-width: 667px){
+		.purpose{
+
+		&__block{
+				flex-direction: column;
+			}
+			&__video{
+				margin: auto;
+			}
+			&__purpose{
+				padding-top: 20px;
+				padding-left: 0;
+				margin: auto;
+			}
+			&__title{
+			}
+			&__title>h3{
+				text-align: center;
+			}
+			&__words{
+			}
+			&__words>p{
+				text-align: center;
+			}
+			&__image{
+			}
+			&__image>img{
+			}
+			&__info{
+			}
+			&__text{
+				width: 560px;
+			}
+			&__text>p{
+			}
+			&__text_bold>p{
+			}
+			&__signUp{
+			}
+			&__signUp>button{
+				margin: auto;
+			}
+		}
+	}
+	@media (max-width: 467px){
+		.purpose{
+
+		&__block{
+			}
+			&__video{
+				width: 350px;
+			}
+			&__purpose{
+				width: 350px;
+			}
+			&__title{
+			}
+			&__title>h3{
+				font-size: 32px;
+			}
+			&__words{
+			}
+			&__words>p{
+				font-size: 16px;
+			}
+			&__image{
+			}
+			&__image>img{
+			}
+			&__info{
+				padding: 10px 0 50px 0;
+			}
+			&__text{
+				width: 350px;
+			}
+			&__text>p{
+				font-size: 18px;
+			}
+			&__text_bold>p{
+			}
+			&__signUp{
+			}
+			&__signUp>button{
+			}
 		}
 	}
 </style>

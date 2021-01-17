@@ -77,12 +77,68 @@
 			display: flex;
 		}
 		&__button{
-			width: 50%;
+			width: 60%;
 			margin: auto 0;
 			display: flex;
 		}
 		&__button>button{
 			@include buttonWhite(100%);
+		}
+	}
+	@media (max-width: 1200px){
+		.header{
+
+			&__nav{
+			}
+
+			&__link{
+			}
+
+			&__link:hover{
+			}
+
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__additionally{
+			}
+			&__button{
+				width: 80%;
+			}
+			&__button>button{
+			}
+		}
+	}
+	@media (max-width: 967px){
+	}
+	@media (max-width: 667px){
+	}
+	@media (max-width: 467px){
+		.header{
+			width: 90%;
+
+			&__nav{
+				display: none;
+			}
+
+			&__link{
+			}
+
+			&__link:hover{
+			}
+
+			&__logo{
+				width: 30%;
+			}
+			&__logo>img{
+			}
+			&__additionally{
+			}
+			&__button{
+			}
+			&__button>button{
+			}
 		}
 	}
 </style>

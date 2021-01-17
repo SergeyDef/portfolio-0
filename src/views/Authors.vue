@@ -119,4 +119,115 @@ export default {
 			@include textSubtitle(14px, 1.55, 300, #7a7a7a);
 		}
 	}
+	@media (max-width: 1200px){
+		.authors{
+
+			&__title{
+				width: 800px;
+			}
+			&__title>h3{
+			}
+			&__subtitle{
+			}
+			&__subtitle>span{
+			}
+			&__content{
+				width: 800px;
+			}
+			&__block{
+				width: 246px;
+				margin: 0 10px;
+			}
+			&__photo{
+				width: 160px;
+			}
+			&__photo>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__description{
+			}
+			&__description>p{
+			}
+		}
+	}
+	@media (max-width: 967px){
+	}
+	@media (max-width: 667px){
+		.authors{
+
+			&__title{
+				width: 560px;
+			}
+			&__title>h3{
+			}
+			&__subtitle{
+			}
+			&__subtitle>span{
+			}
+			&__content{
+				width: 560px;
+			}
+			&__block{
+				width: 156px;
+				margin: 0 5px;
+			}
+			&__photo{
+				width: 110px;
+			}
+			&__photo>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__description{
+			}
+			&__description>p{
+			}
+		}
+	}
+	@media (max-width: 467px){
+		.authors{
+			padding: 60px 0;
+
+			&__title{
+				width: 350px;
+			}
+			&__title>h3{
+				font-size: 32px;
+			}
+			&__subtitle{
+				width: 350px;
+			}
+			&__subtitle>span{
+				font-size: 18px;
+			}
+			&__content{
+				width: 350px;
+				padding: 60px 0 50px 0;
+				flex-direction: column;
+			}
+			&__block{
+				width: 350px;
+				margin: auto;
+				padding-top: 50px;
+			}
+			&__photo{
+				width: 110px;
+			}
+			&__photo>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__description{
+			}
+			&__description>p{
+			}
+		}
+	}
 </style>
