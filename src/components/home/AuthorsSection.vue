@@ -55,7 +55,7 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Authors',
+  name: 'AuthorsSection',
   components: {
   }
 }
@@ -157,11 +157,13 @@ export default {
 	}
 	@media (max-width: 667px){
 		.authors{
+			padding: 60px 0;
 
 			&__title{
 				width: 560px;
 			}
 			&__title>h3{
+				font-size: 36px;
 			}
 			&__subtitle{
 			}
@@ -171,7 +173,7 @@ export default {
 				width: 560px;
 			}
 			&__block{
-				width: 156px;
+				width: 176px;
 				margin: 0 5px;
 			}
 			&__photo{
@@ -182,10 +184,12 @@ export default {
 			&__name{
 			}
 			&__name>h5{
+				font-size: 18px;
 			}
 			&__description{
 			}
 			&__description>p{
+				font-size: 12px;
 			}
 		}
 	}
@@ -227,6 +231,47 @@ export default {
 			&__description{
 			}
 			&__description>p{
+			}
+		}
+	}
+	@media (max-width: 365px){
+		.authors{
+			padding: 50px 0;
+
+			&__title{
+				width: 320px;
+				margin-bottom: 30px;
+			}
+			&__title>h3{
+				font-size: 28px;
+			}
+			&__subtitle{
+				width: 320px;
+			}
+			&__subtitle>span{
+				font-size: 14px;
+			}
+			&__content{
+				width: 320px;
+				padding: 20px 0 40px 0;
+			}
+			&__block{
+				width: 320px;
+				padding-top: 40px;
+			}
+			&__photo{
+			}
+			&__photo>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+				font-size: 20px;
+			}
+			&__description{
+			}
+			&__description>p{
+				font-size: 12px;
 			}
 		}
 	}

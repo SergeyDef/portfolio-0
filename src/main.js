@@ -4,7 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 // import 'popperjs/core/dist/popper'
-// import 'bootstrap/dist/js/bootstrap.min'
+import 'bootstrap/dist/js/bootstrap.min'
 import 'jquery/dist/jquery.min'
 
 

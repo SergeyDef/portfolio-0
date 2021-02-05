@@ -4,10 +4,10 @@
 			<h3>Присоединяйтесь к нам!</h3>
 		</div>
 		<div class="join__subtitle">
-			<span>Мы подготовили для Вас шесть увлекательных</span>
-			<span>уроков, каждый из которых освещает важные</span>
-			<span>вопросы профессии репетитора и позволит</span>
-			<span>вам избежать подводных камней</span>
+			<span>Мы подготовили для Вас шесть практических</span>
+			<span>уроков. Они раскроют важные вопросы профессии</span>
+			<span>репетитора и позволят Вам избежать помогут</span>
+			<span>камней</span>
 		</div>
 		<div class="join__content">
 
@@ -110,7 +110,7 @@
 // @ is an alias to /src
 
 export default {
-  name: 'JoinUs',
+  name: 'JoinSection',
   components: {
   }
 }
@@ -119,6 +119,7 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/_mixins.scss';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
 	.join{
 		padding-top: 135px;
@@ -179,7 +180,7 @@ export default {
 			color: #000;
 			text-align: left;
 			margin: 0;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
+			font-family: 'Noto Sans', sans-serif;
 		}
 	}
 	@media (max-width: 1200px){
@@ -239,6 +240,8 @@ export default {
 	}
 	@media (max-width: 667px){
 		.join{
+			padding-top: 65px;
+			padding-bottom: 65px;
 
 			&__title{
 			}
@@ -249,9 +252,12 @@ export default {
 			&__subtitle>span{
 			}
 			&__content{
-				width: 560px;
+				width: 460px;
 			}
 			&__block{
+				width: 100%;
+				height: 460px;
+				margin: 20px 0;
 			}
 			&__img{
 			}
@@ -267,6 +273,7 @@ export default {
 	}
 	@media (max-width: 467px){
 		.join{
+			padding-top: 65px;
 			padding-bottom: 60px;
 			
 			&__title{
@@ -286,10 +293,49 @@ export default {
 			}
 			&__block{
 				width: 360px;
+				height: 432px;
 			}
 			&__img{
 				width: 30px;
 				padding-bottom: 10px;
+			}
+			&__img>img{
+			}
+			&__name{
+			}
+			&__name>h5{
+			}
+			&__text>p{
+				font-size: 14px;
+			}
+		}
+	}
+	@media (max-width: 365px){
+		.join{
+			
+			&__title{
+			}
+			&__title>h3{
+				font-size: 26px;
+			}
+			&__subtitle{
+				width: 320px;
+				padding-bottom: 20px;
+			}
+			&__subtitle>span{
+				font-size: 14px;
+				width: 100%;
+			}
+			&__content{
+				width: 100%;
+			}
+			&__block{
+				width: 260px;
+				padding: 20px;
+				margin: 20px auto;
+				height: 442px
+			}
+			&__img{
 			}
 			&__img>img{
 			}

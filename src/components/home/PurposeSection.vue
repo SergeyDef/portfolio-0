@@ -9,10 +9,11 @@
 					<h3>Наша цель</h3>
 				</div>
 				<div class="purpose__words">
-					<p>Цель данного курса – осветить основные вопросы, возникающие у начинающих репетиторов. Здесь собраны самые главные практические рекомендации от опытных педагогов и психологов.</p>
+					<p>Цель данного курса – осветить главные вопросы, возникающие у начинающих репетиторов. Здесь собраны основные практические рекомендации от опытных педагогов и психологов.</p>
 				</div>
 				<div class="purpose__signUp">
-					<button type="button" class="btn">Записаться</button>
+					<!-- <button type="button" class="btn"><a href="">Записаться</a></button> -->
+					<a href="https://oplatakursov.ru/cmgqixvy"><span>Записаться</span></a>
 				</div>
 			</div>
 		</div>
@@ -24,7 +25,7 @@
 				<p>Мы поможем Вам освоить новую профессию: начиная от позиционирования себя на рынке труда и поиска клиентов, заканчивая профессиональным ростом и работой с группами учеников.</p>
 			</div>
 			<div class="purpose__text">
-				<p>Мы расскажем, с чего начать и как сразу выгодно поставить себя в условиях конкуренции среди репетиторов, как вести себя при первом контакте с новыми клиентами и как выстроить долгосрочное доверительное сотрудничество.</p>
+				<p>Вы узнаете: с чего начать и как сразу выгодно поставить себя в условиях конкуренции среди репетиторов, как вести себя при первом контакте с новыми клиентами и как выстроить долгосрочное доверительное сотрудничество.</p>
 			</div>
 		</div>
 	</div>
@@ -121,8 +122,24 @@ export default {
 			display: flex;
 			justify-content: space-between;
 		}
-		&__signUp>button{
+/*		&__signUp>button{
 			@include buttonColor(40%, #fff, #333333);
+		}*/
+		&__signUp>a{
+			width: 40%;
+			display: flex;
+			margin: 0;
+			padding: 8px 30px;
+			border-radius: 0;
+			text-decoration: none;
+			border: solid 2px #fff;
+			background-color: #fff;
+		}
+		&__signUp>a>span{
+			color: #333333;
+			margin: auto;
+			font-weight: 600;
+			font-size: 1rem;
 		}
 	}
 	@media (max-width: 1200px){
@@ -165,6 +182,43 @@ export default {
 		}
 	}
 	@media (max-width: 967px){
+	.purpose{
+
+		&__block{
+			}
+			&__video{
+				width: 400px;
+			}
+			&__video>iframe{
+				height: 215px!important;
+			}
+			&__purpose{
+			}
+			&__title{
+			}
+			&__title>h3{
+			}
+			&__words{
+			}
+			&__words>p{
+			}
+			&__image{
+			}
+			&__image>img{
+			}
+			&__info{
+			}
+			&__text{
+			}
+			&__text>p{
+			}
+			&__text_bold>p{
+			}
+			&__signUp{
+			}
+			&__signUp>button{
+			}
+		}
 	}
 	@media (max-width: 667px){
 		.purpose{
@@ -204,9 +258,14 @@ export default {
 			&__text_bold>p{
 			}
 			&__signUp{
+				width: 240px;
+				margin: 0 auto;
 			}
 			&__signUp>button{
 				margin: auto;
+			}
+			&__signUp>a{
+				width: 100%;
 			}
 		}
 	}
@@ -217,6 +276,8 @@ export default {
 			}
 			&__video{
 				width: 350px;
+			}
+			&__video>iframe{
 			}
 			&__purpose{
 				width: 350px;
@@ -252,4 +313,47 @@ export default {
 			}
 		}
 	}
+	@media (max-width: 365px){
+		.purpose{
+
+			&__block{
+				}
+				&__video{
+					width: 320px;
+				}
+				&__video>iframe{
+				}
+				&__purpose{
+					width: 320px;
+				}
+				&__title{
+				}
+				&__title>h3{
+					font-size: 28px;
+				}
+				&__words{
+				}
+				&__words>p{
+					font-size: 14px;
+				}
+				&__image{
+				}
+				&__image>img{
+				}
+				&__info{
+				}
+				&__text{
+					width: 320px;
+				}
+				&__text>p{
+					font-size: 14px;
+				}
+				&__text_bold>p{
+				}
+				&__signUp{
+				}
+				&__signUp>button{
+				}
+			}
+		}
 </style>

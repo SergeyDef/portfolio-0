@@ -14,7 +14,7 @@
   margin: 0;
   border-radius: 0;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 1rem;
 }
 
 @mixin textTitle($fontSize, $lineHeight, $fontWeight, $color){
@@ -23,7 +23,7 @@
 	font-weight: $fontWeight;
 	color: $color;
 	text-align: center;
-	/*font-family: 'Noto Sans',Arial,sans-serif;*/
+	font-family: 'Noto Sans',Arial,sans-serif;
 }
 
 @mixin textSubtitle($fontSize, $lineHeight, $fontWeight, $color){
