@@ -1,38 +1,28 @@
 @mixin buttonWhite($width) {
-  width: $width;
-  margin: 0;
-  border: solid 2px #0056d3;
-  border-radius: 0;
-  font-weight: 400;
-  color: #000000;
+	width: $width;
+	margin: 0;
+	border: solid 2px #0056d3;
+	border-radius: 0;
+	font-weight: 400;
+	color: #000000;
+	font-family: 'Gilroy-Medium';
 }
 @mixin buttonColor($width, $backgroundColor, $color){
-  width: $width;
-  border: solid 2px $backgroundColor;
-  background-color: $backgroundColor;
-  color: $color;
-  margin: 0;
-  border-radius: 0;
-  font-weight: 600;
-  font-size: 1rem;
+	width: $width;
+	border: solid 2px $backgroundColor;
+ 	background-color: $backgroundColor;
+	color: $color;
+	margin: 0;
+	border-radius: 0;
+	font-weight: 600;
+	font-size: 1rem;
+	font-family: 'Gilroy-Medium';
 }
-
-@mixin textTitle($fontSize, $lineHeight, $fontWeight, $color){
+@mixin textContent($fontSize, $lineHeight, $fontWeight, $color, $textAlign, $fontFamily){
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
 	color: $color;
-	text-align: center;
-	font-family: 'Noto Sans',Arial,sans-serif;
-}
-
-@mixin textSubtitle($fontSize, $lineHeight, $fontWeight, $color){
-	font-size: $fontSize;
-	line-height: $lineHeight;
-	font-weight: $fontWeight;
-	color: $color;
-	display: block;
-	margin: auto;
-	text-align: center;
-	/*font-family: 'Noto Sans',Arial,sans-serif;*/
+	text-align: $textAlign;
+	font-family: $fontFamily;
 }

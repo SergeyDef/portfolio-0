@@ -130,7 +130,7 @@ export default {
 			margin-bottom: 40px;
 		}
 		&__title>h3{
-			@include textTitle(42px, 1.23, 600, #000);
+			@include textContent(42px, 1.23, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__subtitle{
 			margin: auto;
@@ -138,7 +138,9 @@ export default {
 			padding-bottom: 90px;
 		}
 		&__subtitle>span{
-			@include textSubtitle(24px, 1.5, 300, #000);
+			@include textContent(1.4rem, 1.5, 300, #000, center, 'Gilroy-Medium');
+			display: block;
+			margin: auto;
 		}
 		&__content{
 			width: 1200px;
@@ -167,20 +169,11 @@ export default {
 			margin-bottom: 15px;
 		}
 		&__name>h5{
-			font-size: 22px;
-			line-height: 1.35;
-			font-weight: 500;
-			color: #000;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
+			@include textContent(22px, 1.35, 500, #000, left, 'Gilroy-Bold');
 		}
 		&__text>p{
-			font-size: 18px;
-			line-height: 1.55;
-			font-weight: 300;
-			color: #000;
-			text-align: left;
+			@include textContent(18px, 1.55, 300, #000, left, 'Gilroy-Medium');
 			margin: 0;
-			font-family: 'Noto Sans', sans-serif;
 		}
 	}
 	@media (max-width: 1200px){
@@ -256,7 +249,7 @@ export default {
 			}
 			&__block{
 				width: 100%;
-				height: 460px;
+				height: 510px;
 				margin: 20px 0;
 			}
 			&__img{

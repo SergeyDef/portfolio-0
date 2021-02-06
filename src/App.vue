@@ -18,6 +18,7 @@
 
 <style lang="scss">
 @import '@/scss/_mixins.scss';
+@import '@/scss/_fonts.scss';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 #app {

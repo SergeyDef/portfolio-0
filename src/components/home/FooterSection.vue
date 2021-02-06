@@ -3,7 +3,7 @@
 		<div class="footer__content">
 			<div class="footer__lists">
 
-				<div class="footer__block">
+				<div class="footer__block footer__block_logo">
 					<div class="footer__logo">
 						<img src="@/assets/footer/logoFooter.png">
 					</div>
@@ -89,7 +89,11 @@
 			</div>
 		</div>
 		<div class="feedback">
-			<form class="feedback__form">
+			<form 
+				id="feedbackForm" 
+				class="feedback__form">
+				@submit="sendEmail"
+				method="post"
 				<div class="feedback__title">
 					<h3>Связаться с нами</h3>
 				</div>
@@ -101,7 +105,12 @@
 						name="name" 
 						class="form-control feedback__input" 
 						placeholder="Иван"
-						v-model="formEmail.name" />
+						v-model.trim="feedback.name"
+						:class="$v.feedback.name.$error ? 'feedback__error' : ''" />
+					<div class="error">
+						<div class="error__notification"><span>*ошибка</span></div>
+						<div class="error__message"><span>обязытельно для заполнение</span></div>
+					</div>
 				</div>
 				</div>
 				<div class="feedback__field form-group row">
@@ -114,7 +123,11 @@
 							name="surname" 
 							class="form-control feedback__input" 
 							placeholder="Иванович" 
-							v-model="formEmail.surname" />
+							v-model.trim="feedback.surname" />
+					</div>
+					<div class="error">
+						<div class="error__notification"><span>*ошибка</span></div>
+						<div class="error__message"><span>обязытельно для заполнение</span></div>
 					</div>
 				</div>
 				<div class="feedback__field form-group row">
@@ -127,7 +140,11 @@
 							name="contact" 
 							class="form-control feedback__input" 
 							placeholder=""
-							v-model="formEmail.contact" />
+							v-model.trim="feedback.contact" />
+					</div>
+					<div class="error">
+						<div class="error__notification"><span>*ошибка</span></div>
+						<div class="error__message"><span>обязытельно для заполнение</span></div>
 					</div>
 				</div>
 					<div class="feedback__field form-group row">
@@ -141,12 +158,29 @@
 								rows="4" 
 								cols="25" 
 								class="feedback__massage form-control"
-								v-model="formEmail.massage"></textarea>
+								v-model="feedback.massage"></textarea>
+						</div>
+						<div class="error">
+							<div class="error__notification"><span>*ошибка</span></div>
+							<div class="error__message"><span>обязытельно для заполнение</span></div>
 						</div>
 					</div>
 					<div class="feedback__field form-group row">
 						<div class="feedback__button col-sm-12">
-							<button type="button" class="btn" @click="sendEmail">Отправить</button>
+							<button type="button" class="btn">Отправить</button>
+						</div>
+					</div>
+					<div class="form-group form-check feedback__checkbox">
+						<input 
+							type="checkbox"
+							checked="checked" 
+							class="form-check-input" 
+							name="check_box"
+							v-model="feedback.consent">
+						<label class="form-check-label" for="check_box">Согласие на обработтку данных</label>
+						<div class="error">
+							<div class="error__notification"><span>*ошибка</span></div>
+							<div class="error__message"><span>политика конфиденциальности</span></div>
 						</div>
 					</div>
 			</form>
@@ -155,24 +189,41 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
 
 export default {
+	mixins: [validationMixin],
 	name: 'FooterSection',
 	components: {
 	},
 	data() {
 		return {
-			formEmail: {
-				name: '',
-				surname: '',
-				contact: '',
-				massage: '',
-			},
+			eroors: [],
+			feedback: {
+				name: null,
+				surname: null,
+				contact: null,
+				massage: null,
+				consent: true,
+			}
 		}
 	},
 	methods: {
 		sendEmail: function () {
+			this.$v.form.$touch();
+			if (this.$v.form.$error) {
+				console.log(this.$v.form.$error);
+			}
+		}
+	},
+	validations: {
+		feedback: {
+			name: { required },
+			surname: { required },
+			contact: { required },
+			massage: { required },
+			consent: { required }
 		}
 	}
 }
@@ -186,18 +237,19 @@ export default {
 		background-color: #111111;
 		padding: 75px 0;
 		display: flex;
+		justify-content: space-between;
 
 		&__content{
 			width: 60%;
-			padding-left: 16%;
+			padding-left: 15%;
 		}
 		&__lists{
 			width: 100%;
 			display: flex;
 		}
 		&__block{
-			width: 260px;
-			margin: 20px 0;
+			width: 29%;
+			margin: 20px 2%;
 		}
 		&__logo{
 			width: 120px;
@@ -224,23 +276,15 @@ export default {
 			margin-top: 21px;
 		}
 		&__adept>span{
-			color: #525252;
-			font-size: 12px;
-			line-height: 1.55;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
-			font-weight: 300;
+			@include textContent(12px, 1.55, 300, #525252, left, 'Gilroy-Light');
 		}
 		&__title{
 			width: 100%;
 			margin-bottom: 14px;
 		}
 		&__title>h5{
-			color: #525252;
-			font-size: 16px;
-			line-height: 1.35;
+			@include textContent(16px, 1.35, 600, #525252, left, 'Gilroy-ExtraBold');
 			margin: 0;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
-			font-weight: 600;
 			text-transform: uppercase;
 		}
 		&__item{
@@ -256,23 +300,15 @@ export default {
 			list-style-type: none;
 		}
 		&__item>ul>li>a{
+			@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			padding: 0;
 			margin: 0;
-			color: #fff;
-			font-size: 14px;
-			line-height: 1.55;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
-			font-weight: 300;
 			text-decoration: none;
 		}
 		&__item>ul>li>span{
+			@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			padding: 0;
 			margin: 0;
-			color: #fff;
-			font-size: 14px;
-			line-height: 1.55;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
-			font-weight: 300;
 		}
 		&__regulations{
 			width: 100%;
@@ -286,15 +322,13 @@ export default {
 			text-align: left;
 		}
 		&__direction>span{
-			color: #fff;
-			font-size: 14px;
-			line-height: 1.55;
-			font-weight: 300;
+			@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			cursor: pointer;
 		}
 		.feedback{
-			width: 40%;
-			padding: 0 160px 0 30px;
+			position: relative;
+			width: 35%;
+			padding: 0 10% 0 2%;;
 
 			&__form{
 				width: 100%;
@@ -306,38 +340,232 @@ export default {
 				padding: 0 10px;
 			}
 			&__title>h3{
-				color: #525252;
-				font-size: 18px;
+				@include textContent(18px, 1.35, 600, #525252, center, 'Gilroy-ExtraBold');
 				text-transform: uppercase;
 			}
+			&__field{
+				position: relative;
+			}
 			&__label>span{
-				color: #fff;
+				@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			}
 			&__input{
 				border-radius: 0;
+				@include textContent(14px, 0.55, 300, #000, left, 'Gilroy-Medium');
+			}
+			&__input::-webkit-input-placeholder{
+				@include textContent(14px, 1.55, 300, #525252, left, 'Gilroy-Light');
+			}
+			&__input:-moz-placeholder{
+				@include textContent(14px, 1.55, 300, #525252, left, 'Gilroy-Light');
 			}
 			&__massage{
+				color: #525252;
+				font-size: 14px;
+				font-family: 'Gilroy-Medium';
 				border-radius: 0;
 			}
+			&__massage::-webkit-input-placeholder{
+				@include textContent(14px, 1.55, 300, #525252, left, 'Gilroy-Light');
+			}
+			&__massage:-moz-placeholder{
+				@include textContent(14px, 1.55, 300, #525252, left, 'Gilroy-Light');
+			}
 			&__button{
+				margin-top: 20px;
 				width: 100%;
 				text-align: center;
 			}
 			&__button>button{
 				@include buttonColor(40%, #fff, #000);
 				margin: auto;
+				position: relative;
+			}
+			&__checkbox>label{
+				@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
+			}
+			&__error{
+				box-shadow: inset 0 0 10px #f80000;
+				/*box-shadow: 0 0 20px #f80000;*/
+				border: solid 1px #f80000;
+			}
+			.error{
+				display: flex;
+				justify-content: space-between;
+				position: absolute;
+				left: 15px;
+				bottom: -23px;
+				width: 90%;
+
+				&__notification>span{
+					@include textContent(12x, 1.55, 300, #f80000, left, 'Gilroy-Bold');
+				}
+				&__message{
+					@include textContent(12x, 1.55, 300, #f80000, left, 'Gilroy-Bold');
+				}
 			}
 		}
 	}
-	@media (max-width: 1200px){
+	@media (max-width: 1600px){
 		.footer{
 
 			&__content{
+				padding-left: 12%;
 			}
 			&__lists{
 			}
 			&__block{
-				width: 220px;
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+			}
+			&__item{
+			}
+			&__item>ul{
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+			}
+			&__item>ul>li>span{
+			}
+			&__regulations{
+			}
+			&__direction{
+			}
+			&__direction>span{
+			}
+			.feedback{
+				padding: 0 8% 0 2%;
+
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__input::-webkit-input-placeholder{
+				}
+				&__input:-moz-placeholder{
+				}
+				&__massage{
+				}
+				&__massage::-webkit-input-placeholder{
+				}
+				&__massage:-moz-placeholder{
+				}
+				&__button{
+				}
+				&__button>button{
+				}
+			}
+		}
+	}
+	@media (max-width: 1400px){
+		.footer{
+
+			&__content{
+				width: 65%;
+				padding-left: 10%;
+			}
+			&__lists{
+			}
+			&__block{
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+			}
+			&__item{
+			}
+			&__item>ul{
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+			}
+			&__item>ul>li>span{
+			}
+			&__regulations{
+			}
+			&__direction{
+			}
+			&__direction>span{
+			}
+			.feedback{
+				padding: 0 8% 0 2%;
+
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__input::-webkit-input-placeholder{
+				}
+				&__input:-moz-placeholder{
+				}
+				&__massage{
+				}
+				&__massage::-webkit-input-placeholder{
+				}
+				&__massage:-moz-placeholder{
+				}
+				&__button{
+				}
+				&__button>button{
+				}
+			}
+		}
+	}
+	@media (max-width: 1250px){
+		.footer{
+
+			&__content{
+				padding-left: 4%;
+			}
+			&__lists{
+			}
+			&__block{
+				width: 36%;
+			}
+			&__block_logo{
+				width: 22%;
 			}
 			&__logo{
 			}
@@ -378,7 +606,7 @@ export default {
 			}
 			.feedback{
 				flex-direction: column;
-				padding: 0 100px 0 30px;
+				padding: 0 4% 0 1%;
 
 				&__form{
 				}
@@ -401,6 +629,84 @@ export default {
 		}
 	}
 	@media (max-width: 967px){
+		.footer{
+			flex-direction: column;
+
+			&__content{
+				width: 90%;
+				margin: auto;
+				padding: 0;
+				order: 1;
+			}
+			&__lists{
+			}
+			&__block{
+			}
+			&__logo{
+			}
+			&__logo>img{
+			}
+			&__networks{
+			}
+			&__networks>a{
+			}
+			&__adept{
+			}
+			&__adept>span{
+			}
+			&__title{
+			}
+			&__title>h5{
+
+			}
+			&__item{
+
+			}
+			&__item>ul{
+
+			}
+			&__item>ul>li{
+			}
+			&__item>ul>li>a{
+
+			}
+			&__item>ul>li>span{
+
+			}
+			&__regulations{
+			}
+			&__direction{
+				padding-top: 0;
+			}
+			&__direction>span{
+			}
+			.feedback{
+				width: 460px;
+				padding: 0;
+				margin: auto;
+				order: 0;
+
+				&__form{
+				}
+
+				&__title{
+				}
+				&__title>h3{
+				}
+				&__label>span{
+				}
+				&__input{
+				}
+				&__massage{
+				}
+				&__button{
+				}
+				&__button>button{
+					width: 40%;
+					height: 45px;
+				}
+			}
+		}
 	}
 	@media (max-width: 667px){
 		.footer{

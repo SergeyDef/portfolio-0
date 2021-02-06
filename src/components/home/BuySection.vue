@@ -47,7 +47,7 @@ export default {
 			margin-bottom: 40px;
 		}
 		&__title>h2{
-			@include textTitle(64px, 1.23, 700, #000);
+			@include textContent(64px, 1.23, 700, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__wrapper{
 			width: 100%;
@@ -62,11 +62,7 @@ export default {
 			padding-top: 5px;
 		}
 		&__item>span{
-			font-size: 24px;
-			line-height: 1.5;
-			font-weight: 300;
-			color: #000;
-			font-weight: 500;
+			@include textContent(24px, 1.5, 500, #000, left, 'Gilroy-Bold');
 		}
 		&__button{
 			width: 260px;
@@ -74,6 +70,7 @@ export default {
 			margin: 60px auto 0 auto;
 			background-color: #1f5bff;
 			border-radius: 30px;
+			font-family: 'Gilroy-Medium';
 		}
 		&__button>a{
 			width: 100%;

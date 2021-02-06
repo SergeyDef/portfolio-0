@@ -111,6 +111,7 @@
 			text-decoration: none;
 			font-size: 1rem;
 			color: #000;
+			font-family: 'Gilroy-Medium';
 		}
 		&__link>a:hover{
 			color: #0056d3;
@@ -149,6 +150,7 @@
 			display: flex;
 			padding: 8px 30px;
 			text-decoration: none;
+			font-family: 'Gilroy-Medium';
 		}
 		&__read>a>span{
 			margin: auto;
@@ -212,6 +214,7 @@
 				font-size: 24px;
 				font-weight: 700;
 				text-decoration: none;
+				font-family: 'Gilroy-Bold';
 			}
 		}
 	}
@@ -320,6 +323,26 @@
 			}
 			&__read>button{
 			}
+			.nav_adaptiv{
+				width: 54%;
+
+				&__close{
+
+				}
+				&__close>div{
+				}
+				&__close>div::before{
+				}
+				&__close>div::after{
+				}
+
+				&__list{
+				}
+				&__item{
+				}
+				&__item>span>a{
+				}
+			}
 		}
 	}
 	@media (max-width: 667px){
@@ -369,6 +392,31 @@
 			}
 			&__read>button{
 			}
+			.nav_adaptiv{
+				width: 60%;
+
+				&__close{
+					width: 30px;
+					height: 30px;
+					right: 5px;
+					top: 5px;
+				}
+				&__close>div{
+				}
+				&__close>div::before{
+				}
+				&__close>div::after{
+				}
+
+				&__list{
+					padding: 70px 0 0 50px;
+				}
+				&__item{
+				}
+				&__item>span>a{
+					font-size: 18px;
+				}
+			}
 		}
 	}
 	@media (max-width: 467px){
@@ -406,6 +454,25 @@
 			}
 			&__read>a{
 			}
+			.nav_adaptiv{
+
+				&__close{
+				}
+				&__close>div{
+				}
+				&__close>div::before{
+				}
+				&__close>div::after{
+				}
+
+				&__list{
+				}
+				&__item{
+				}
+				&__item>span>a{
+					font-size: 14px;
+				}
+			}
 		}
 	}
 	@media (max-width: 367px){
@@ -425,13 +492,32 @@
 			&__logo>img{
 			}
 			&__additionally{
-				width: 65%;
+				width: 60%;
 			}
 			&__read{
 			}
 			&__read>button{
 			}
 			&__read>a{
+			}
+			.nav_adaptiv{
+				width: 70%;
+
+				&__close{
+				}
+				&__close>div{
+				}
+				&__close>div::before{
+				}
+				&__close>div::after{
+				}
+
+				&__list{
+				}
+				&__item{
+				}
+				&__item>span>a{
+				}
 			}
 		}
 	}

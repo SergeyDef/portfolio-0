@@ -74,14 +74,16 @@ export default {
 			margin-bottom: 40px;
 		}
 		&__title>h3{
-			@include textTitle(42px, 1.23, 600, #000);
+			@include textContent(42px, 1.23, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__subtitle{
 			margin: auto;
 			width: 560px;
 		}
 		&__subtitle>span{
-			@include textSubtitle(24px, 1.5, 300, #000);
+			@include textContent(24px, 1.5, 300, #000, center, 'Gilroy-Medium');
+				display: block;
+				margin: auto;
 		}
 		&__content{
 			width: 1200px;
@@ -106,17 +108,19 @@ export default {
 			height: auto;
 		}
 		&__name{
+			width: 100%;
+			height: 60px;
 			margin-bottom: 4px;
 		}
 		&__name>h5{
-			@include textTitle(22px, 1.35, 600, #000);
+			@include textContent(22px, 1.35, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__description{
 			width: 90%;
 			margin: auto;
 		}
 		&__description>p{
-			@include textSubtitle(14px, 1.55, 300, #7a7a7a);
+			@include textContent(14px, 1.55, 300, #7a7a7a, center, 'Gilroy-Light');
 		}
 	}
 	@media (max-width: 1200px){
@@ -225,6 +229,7 @@ export default {
 			&__photo>img{
 			}
 			&__name{
+				height: 40px;
 			}
 			&__name>h5{
 			}

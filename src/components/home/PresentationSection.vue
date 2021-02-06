@@ -74,11 +74,8 @@ export default {
 			width: 100%;
 		}
 		&__title>h2{
-			font-size: 2rem;
-			font-weight: 700;
-			color: #000000;
-			font-size: 35px;
-			font-family: 'Gilroy-ExtraBold';
+			@include textContent(2.5rem, 1.23, 700, #000, left, 'Gilroy-ExtraBold');
+
 		}
 		&__text{
 			text-align: left;			

@@ -24,7 +24,7 @@
 			<div class="purpose__text purpose__text_bold">
 				<p>Мы поможем Вам освоить новую профессию: начиная от позиционирования себя на рынке труда и поиска клиентов, заканчивая профессиональным ростом и работой с группами учеников.</p>
 			</div>
-			<div class="purpose__text">
+			<div class="purpose__text purpose__text_not_bold">
 				<p>Вы узнаете: с чего начать и как сразу выгодно поставить себя в условиях конкуренции среди репетиторов, как вести себя при первом контакте с новыми клиентами и как выстроить долгосрочное доверительное сотрудничество.</p>
 			</div>
 		</div>
@@ -73,6 +73,7 @@ export default {
 			line-height: 1.23;
 			font-weight: 700;
 			font-size: 36px;
+			font-family: 'Gilroy-ExtraBold';
 		}
 		&__words{
 			padding-bottom: 6px;
@@ -83,7 +84,7 @@ export default {
 			color: #fff;
 			text-align: left;
 			font-weight: 300;
-			font-family: 'Noto Sans',Arial,sans-serif;
+			font-family: 'Gilroy-Bold';
 		}
 		&__image{
 			width: 100%;
@@ -111,12 +112,15 @@ export default {
 			font-size: 24px;
 			line-height: 1.55;
 			text-align: center;
-			/*font-family: 'Noto Sans',Arial,sans-serif;*/
 			font-weight: 300;
 			color: #000;
 		}
+		&__text_not_bold{
+			font-family: 'Gilroy-Medium';
+		}
 		&__text_bold>p{
 			font-weight: 600;
+			font-family: 'Gilroy-Bold';
 		}
 		&__signUp{
 			display: flex;
@@ -134,6 +138,7 @@ export default {
 			text-decoration: none;
 			border: solid 2px #fff;
 			background-color: #fff;
+			font-family: 'Gilroy-Medium';
 		}
 		&__signUp>a>span{
 			color: #333333;
