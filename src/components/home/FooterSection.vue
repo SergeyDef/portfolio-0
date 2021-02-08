@@ -89,11 +89,7 @@
 			</div>
 		</div>
 		<div class="feedback">
-			<form 
-				id="feedbackForm" 
-				class="feedback__form">
-				@submit="sendEmail"
-				method="post"
+			<form id="feedbackForm" class="feedback__form" @submit.prevent="sendEmail" method="post">
 				<div class="feedback__title">
 					<h3>Связаться с нами</h3>
 				</div>
@@ -107,7 +103,7 @@
 						placeholder="Иван"
 						v-model.trim="feedback.name"
 						:class="$v.feedback.name.$error ? 'feedback__error' : ''" />
-					<div class="error">
+					<div class="error" v-if="$v.feedback.name.$error">
 						<div class="error__notification"><span>*ошибка</span></div>
 						<div class="error__message"><span>обязытельно для заполнение</span></div>
 					</div>
@@ -123,9 +119,10 @@
 							name="surname" 
 							class="form-control feedback__input" 
 							placeholder="Иванович" 
-							v-model.trim="feedback.surname" />
+							v-model.trim="feedback.surname"
+							:class="$v.feedback.surname.$error? 'feedback__error' : ''" />
 					</div>
-					<div class="error">
+					<div class="error" v-if="$v.feedback.surname.$error">
 						<div class="error__notification"><span>*ошибка</span></div>
 						<div class="error__message"><span>обязытельно для заполнение</span></div>
 					</div>
@@ -140,11 +137,17 @@
 							name="contact" 
 							class="form-control feedback__input" 
 							placeholder=""
-							v-model.trim="feedback.contact" />
+							v-model.trim="feedback.contact"
+							:class="($v.feedback.contact.$dirty && !$v.feedback.contact.required) || 
+							($v.feedback.contact.$dirty && (!$v.feedback.contact.email && !$v.feedback.contact.phone)) ? 'feedback__error' : ''" />
 					</div>
-					<div class="error">
+					<div class="error" v-if="$v.feedback.contact.$dirty && !$v.feedback.contact.required">
 						<div class="error__notification"><span>*ошибка</span></div>
 						<div class="error__message"><span>обязытельно для заполнение</span></div>
+					</div>
+					<div class="error" v-else-if="$v.feedback.contact.$dirty && (!$v.feedback.contact.email && !$v.feedback.contact.phone)">
+						<div class="error__notification"><span>*ошибка</span></div>
+						<div class="error__message"><span>не корректный email/телефон</span></div>
 					</div>
 				</div>
 					<div class="feedback__field form-group row">
@@ -158,16 +161,22 @@
 								rows="4" 
 								cols="25" 
 								class="feedback__massage form-control"
-								v-model="feedback.massage"></textarea>
+								v-model="feedback.massage"
+								:class="$v.feedback.massage.$error ? 'feedback__error' : ''"></textarea>
 						</div>
-						<div class="error">
+						<div class="error" v-if="$v.feedback.massage.$error">
 							<div class="error__notification"><span>*ошибка</span></div>
 							<div class="error__message"><span>обязытельно для заполнение</span></div>
 						</div>
 					</div>
 					<div class="feedback__field form-group row">
 						<div class="feedback__button col-sm-12">
-							<button type="button" class="btn">Отправить</button>
+							<input 
+								type="submit" 
+								class="btn" 
+								name="" 
+								value="Отправить" 
+								:disabled="!$v.feedback.consent.$model"/>
 						</div>
 					</div>
 					<div class="form-group form-check feedback__checkbox">
@@ -178,9 +187,9 @@
 							name="check_box"
 							v-model="feedback.consent">
 						<label class="form-check-label" for="check_box">Согласие на обработтку данных</label>
-						<div class="error">
+						<div class="error" v-if="!$v.feedback.consent.$model">
 							<div class="error__notification"><span>*ошибка</span></div>
-							<div class="error__message"><span>политика конфиденциальности</span></div>
+							<div class="error__message error__direction"><span>политика конфиденциальности</span></div>
 						</div>
 					</div>
 			</form>
@@ -190,7 +199,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 
 export default {
 	mixins: [validationMixin],
@@ -211,9 +220,9 @@ export default {
 	},
 	methods: {
 		sendEmail: function () {
-			this.$v.form.$touch();
-			if (this.$v.form.$error) {
-				console.log(this.$v.form.$error);
+			if (this.$v.$invalid) {
+				this.$v.feedback.$touch();
+				console.log(this.$v.feedback.consent.$model);
 			}
 		}
 	},
@@ -221,9 +230,11 @@ export default {
 		feedback: {
 			name: { required },
 			surname: { required },
-			contact: { required },
+			contact: { required, email, phone: val => {
+				return /^\d[\d() -]{4,14}\d$/.test(val)
+			} },
 			massage: { required },
-			consent: { required }
+			consent: {  }
 		}
 	}
 }
@@ -376,7 +387,7 @@ export default {
 				width: 100%;
 				text-align: center;
 			}
-			&__button>button{
+			&__button>input{
 				@include buttonColor(40%, #fff, #000);
 				margin: auto;
 				position: relative;
@@ -402,6 +413,9 @@ export default {
 				}
 				&__message{
 					@include textContent(12x, 1.55, 300, #f80000, left, 'Gilroy-Bold');
+				}
+				&__direction{
+					cursor: pointer;
 				}
 			}
 		}
