@@ -20,12 +20,12 @@
 				<div class="carousel-item slide__item active">
 					<img src="@/assets/presentation/slid_1.webp" class="d-block w-100" alt="">
 				</div>
-				<div class="carousel-item">
+<!-- 				<div class="carousel-item">
 					<img src="@/assets/presentation/slid_2.png" class="d-block w-100" alt="">
 				</div>
 				<div class="carousel-item">
 					<img src="@/assets/presentation/slid_3.png" class="d-block w-100" alt="">
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

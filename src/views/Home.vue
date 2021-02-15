@@ -21,7 +21,7 @@
 	import PurposeSection from '@/components/home/PurposeSection.vue'
 	import JoinSection from '@/components/home/JoinSection.vue'
 	import AuthorsSection from '@/components/home/AuthorsSection.vue'
-  import FooterSection from '@/components/home/FooterSection.vue'
+  import FooterSection from '@/components/FooterSection.vue'
   import BuySection from '@/components/home/BuySection.vue'
 	import WindowLogin from '@/components/WindowLogin.vue'
 	// import {mapMutations} from "vuex"

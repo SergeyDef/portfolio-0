@@ -80,12 +80,19 @@
 
 			</div>
 			<div class="footer__regulations">
-				<div class="footer__direction">
+<!-- 				<div class="footer__direction">
 					<span>правила использования ресурса</span>
-				</div>
+				</div> -->
 				<div class="footer__direction">
-					<span>политика конфиденциальности</span>
+					<span @click="privacyPolicy">политика конфиденциальности</span>
 				</div>
+				<!-- Yandex.Metrika counter -->
+				<noscript>
+					<div>
+						<img src="https://mc.yandex.ru/watch/72354526" style="position:absolute; left:-9999px;" alt="" />
+					</div>
+				</noscript>
+				<!-- /Yandex.Metrika counter -->
 			</div>
 		</div>
 		<div class="feedback">
@@ -185,7 +192,7 @@
 							checked="checked" 
 							class="form-check-input" 
 							name="check_box"
-							v-model="feedback.consent">
+							v-model="feedback.consent" />
 						<label class="form-check-label" for="check_box">Согласие на обработтку данных</label>
 						<div class="error" v-if="!$v.feedback.consent.$model">
 							<div class="error__notification"><span>*ошибка</span></div>
@@ -222,9 +229,22 @@ export default {
 		sendEmail: function () {
 			if (this.$v.$invalid) {
 				this.$v.feedback.$touch();
-				console.log(this.$v.feedback.consent.$model);
 			}
+		},
+		privacyPolicy: function () {
+			this.$router.push( '/privacy_policy' );
 		}
+	},
+	maunted() {
+		// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		// 	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		// (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+		// ym(72354526, "init", {
+		// 	clickmap:true,
+		// 	trackLinks:true,
+		// 	accurateTrackBounce:true,
+		// 	webvisor:true
+		// });
 	},
 	validations: {
 		feedback: {
@@ -232,7 +252,8 @@ export default {
 			surname: { required },
 			contact: { required, email, phone: val => {
 				return /^\d[\d() -]{4,14}\d$/.test(val)
-			} },
+			} 
+		},
 			massage: { required },
 			consent: {  }
 		}
@@ -336,6 +357,9 @@ export default {
 			@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			cursor: pointer;
 		}
+		&__direction>span:hover{
+			color: #525252;
+		}
 		.feedback{
 			position: relative;
 			width: 35%;
@@ -409,13 +433,10 @@ export default {
 				width: 90%;
 
 				&__notification>span{
-					@include textContent(12x, 1.55, 300, #f80000, left, 'Gilroy-Bold');
+					@include textContent(12px, 1.55, 300, #f80000, left, 'Gilroy-Bold');
 				}
 				&__message{
-					@include textContent(12x, 1.55, 300, #f80000, left, 'Gilroy-Bold');
-				}
-				&__direction{
-					cursor: pointer;
+					@include textContent(12px, 1.55, 300, #f80000, left, 'Gilroy-Bold');
 				}
 			}
 		}
@@ -563,6 +584,13 @@ export default {
 				&__button{
 				}
 				&__button>button{
+				}
+				.error{
+
+					&__notification>span{
+					}
+					&__message{
+					}
 				}
 			}
 		}

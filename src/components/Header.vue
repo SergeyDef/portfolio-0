@@ -11,19 +11,19 @@
 		<div class="header__nav">
 			<ul class="nav justify-content-center">
 				<li class="nav-item">
-					<span class="nav-link header__link" href="#aboutAs"><a href="#aboutAs">О нас</a></span>
+					<span class="nav-link header__link" href="#aboutAs" @click="goPage">О нас</span>
 				</li>
 				<li class="nav-item">
-					<span class="nav-link header__link" href="#ourGoal"><a href="#ourGoal">Наша цель</a></span>
+					<span class="nav-link header__link" href="#ourGoal" @click="goPage">Наша цель</span>
 				</li>
 				<li class="nav-item">
-					<span class="nav-link header__link" href="#authors"><a href="#authors">Авторы курса</a></span>
+					<span class="nav-link header__link" href="#authors" @click="goPage">Авторы курса</span>
 				</li>
 				<li class="nav-item">
-					<span class="nav-link header__link" href="#cost"><a href="#cost">Приобрести курс</a></span>
+					<span class="nav-link header__link" href="#cost" @click="goPage">Приобрести курс</span>
 				</li>
 				<li class="nav-item">
-					<span class="nav-link header__link" href="#contacts"><a href="#contacts">Контакты</a></span>
+					<span class="nav-link header__link" href="#contacts" @click="goPage">Контакты</span>
 				</li>
 			</ul>
 		</div>
@@ -34,24 +34,24 @@
 		</div>
 
 		<div class="nav_adaptiv" v-if="showNavAdaptiv">
-			<div class="nav_adaptiv__close" @click="closeMenu">
+			<div class="nav_adaptiv__close" id="1" @click="closeMenu">
 				<div></div>
 			</div>
 			<ul class="nav_adaptiv__list">
 				<li class="nav_adaptiv__item">
-					<span class="" href="#aboutAs"><a href="#aboutAs">О нас</a></span>
+					<span class="" href="#aboutAs" @click="goPage">О нас</span>
 				</li>
 				<li class="nav_adaptiv__item">
-					<span class="" href="#ourGoal"><a href="#ourGoal">Наша цель</a></span>
+					<span class="" href="#ourGoal" @click="goPage">Наша цель</span>
 				</li>
 				<li class="nav_adaptiv__item">
-					<span class="" href="#authors"><a href="#authors">Авторы курса</a></span>
+					<span class="" href="#authors" @click="goPage">Авторы курса</span>
 				</li>
 				<li class="nav_adaptiv__item">
-					<span class="" href="#cost"><a href="#cost">Приобрести курс</a></span>
+					<span class="" href="#cost" @click="goPage">Приобрести курс</span>
 				</li>
 				<li class="nav_adaptiv__item">
-					<span class="" href="#contacts"><a href="#contacts">Контакты</a></span>
+					<span class="" href="#contacts" @click="goPage">Контакты</span>
 				</li>
 			</ul>
 		</div>
@@ -76,6 +76,13 @@
 				this.showNavAdaptiv = true;
 			},
 			closeMenu: function () {
+				this.showNavAdaptiv = false;
+				this.hideBurger = true;
+			},
+			goPage: function () {
+				let link = event.target;
+				let href = link.getAttribute('href');
+				this.$router.push({name: 'Home', hash: href});
 				this.showNavAdaptiv = false;
 				this.hideBurger = true;
 			}
@@ -209,7 +216,7 @@
 			&__item{
 				margin: 15px 0;
 			}
-			&__item>span>a{
+			&__item>span{
 				color: #fff;
 				font-size: 24px;
 				font-weight: 700;
@@ -413,7 +420,7 @@
 				}
 				&__item{
 				}
-				&__item>span>a{
+				&__item>span{
 					font-size: 18px;
 				}
 			}
@@ -469,7 +476,7 @@
 				}
 				&__item{
 				}
-				&__item>span>a{
+				&__item>span{
 					font-size: 14px;
 				}
 			}

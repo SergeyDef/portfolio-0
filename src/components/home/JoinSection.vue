@@ -150,7 +150,7 @@ export default {
 		}
 		&__block{
 			width: 360px;
-			height: 612px;
+			height: 614px;
 			margin: 20px;
 			padding: 30px;
 			border-radius: 7px;
@@ -178,89 +178,25 @@ export default {
 	}
 	@media (max-width: 1200px){
 		.join{
-
-			&__title{
-			}
-			&__title>h3{
-			}
-			&__subtitle{
-			}
-			&__subtitle>span{
-			}
 			&__content{
 				width: 800px;
-			}
-			&__block{
-			}
-			&__img{
-			}
-			&__img>img{
-			}
-			&__name{
-			}
-			&__name>h5{
-			}
-			&__text>p{
 			}
 		}
 	}
 	@media (max-width: 967px){
-		.join{
-
-			&__title{
-			}
-			&__title>h3{
-			}
-			&__subtitle{
-			}
-			&__subtitle>span{
-			}
-			&__content{
-			}
-			&__block{
-			}
-			&__img{
-			}
-			&__img>img{
-			}
-			&__name{
-			}
-			&__name>h5{
-			}
-			&__text>p{
-			}
-		}
 	}
 	@media (max-width: 667px){
 		.join{
 			padding-top: 65px;
 			padding-bottom: 65px;
 
-			&__title{
-			}
-			&__title>h3{
-			}
-			&__subtitle{
-			}
-			&__subtitle>span{
-			}
 			&__content{
 				width: 460px;
 			}
 			&__block{
 				width: 100%;
-				height: 510px;
+				height: 524px;
 				margin: 20px 0;
-			}
-			&__img{
-			}
-			&__img>img{
-			}
-			&__name{
-			}
-			&__name>h5{
-			}
-			&__text>p{
 			}
 		}
 	}
@@ -286,17 +222,11 @@ export default {
 			}
 			&__block{
 				width: 360px;
-				height: 432px;
+				height: 442px;
 			}
 			&__img{
 				width: 30px;
 				padding-bottom: 10px;
-			}
-			&__img>img{
-			}
-			&__name{
-			}
-			&__name>h5{
 			}
 			&__text>p{
 				font-size: 14px;
@@ -326,17 +256,7 @@ export default {
 				width: 260px;
 				padding: 20px;
 				margin: 20px auto;
-				height: 442px
-			}
-			&__img{
-			}
-			&__img>img{
-			}
-			&__name{
-			}
-			&__name>h5{
-			}
-			&__text>p{
+				height: 452px
 			}
 		}
 	}
