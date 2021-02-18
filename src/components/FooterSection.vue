@@ -86,13 +86,9 @@
 				<div class="footer__direction">
 					<span @click="privacyPolicy">политика конфиденциальности</span>
 				</div>
-				<!-- Yandex.Metrika counter -->
-				<noscript>
-					<div>
-						<img src="https://mc.yandex.ru/watch/72354526" style="position:absolute; left:-9999px;" alt="" />
-					</div>
-				</noscript>
-				<!-- /Yandex.Metrika counter -->
+			
+
+
 			</div>
 		</div>
 		<div class="feedback">
@@ -201,12 +197,27 @@
 					</div>
 			</form>
 		</div>
+		<!-- <frameset rows="80,*" cols="*">
+			<noscript class="footer__counter">
+			<div>
+				<img src="https://mc.yandex.ru/watch/72354526" style="position:absolute; left:-9999px;" alt="" />
+			</div>
+		</noscript>
+			<script type="text/javascript">
+				(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+				m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)});
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+			ym(72354526, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+			</script> 
+		</frameset> -->
+		<!-- Yandex.Metrika counter -->
 	</div>
 </template>
 
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
+// import {VueYandexMetrika} from 'vue-yandex-metrika'  
 
 export default {
 	mixins: [validationMixin],
@@ -230,21 +241,26 @@ export default {
 			if (this.$v.$invalid) {
 				this.$v.feedback.$touch();
 			}
+			let result = this.$v.feedback.name.required && 
+			this.$v.feedback.surname.required && 
+			this.$v.feedback.contact.required && 
+			(this.$v.feedback.contact.email || this.$v.feedback.contact.phone) && 
+			this.$v.feedback.massage.required
+
+			if (result) {
+				let form = this.feedback;
+				// console.log(form);
+				this.$store.dispatch('SET_FORM', form);
+			} else {
+				alert("ошибка");
+			}
 		},
 		privacyPolicy: function () {
 			this.$router.push( '/privacy_policy' );
 		}
 	},
 	maunted() {
-		// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-		// 	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-		// (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-		// ym(72354526, "init", {
-		// 	clickmap:true,
-		// 	trackLinks:true,
-		// 	accurateTrackBounce:true,
-		// 	webvisor:true
-		// });
+
 	},
 	validations: {
 		feedback: {
@@ -439,6 +455,12 @@ export default {
 					@include textContent(12px, 1.55, 300, #f80000, left, 'Gilroy-Bold');
 				}
 			}
+		}
+		&__counter{
+			z-index: 999999;
+			width: 50px;
+			height: 100px;
+			background-color: #fff;
 		}
 	}
 	@media (max-width: 1600px){
