@@ -19,16 +19,20 @@ export default{
 	},
 	actions: {
 		SET_FORM: (context, submit) => {
-			console.log(submit);
-			let {data} = axios.post('php/mail.php', {
-				'name_form':submit.name,
-				'surname_form':submit.surname,
-				'contact_form':submit.contact,
-				'message_form':submit.message, });
+
+			axios.post('php/mail.php', {
+				'name_form': submit.name,
+				'surname_form': submit.surname,
+				'contact_form': submit.contact,
+				'message_form': submit.message, 
+			})
+			.then(function (response) {
+					console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 			
-			if (data.status) {
-				context.commit('SET_FORM', submit)
-			}
 		}
 	},
 }
