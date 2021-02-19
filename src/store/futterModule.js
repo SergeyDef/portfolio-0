@@ -5,6 +5,7 @@ import axios from 'axios'
 export default{
 	state: {
 		SendByMail: { name: "Cira", eg: 78 },
+		sendingMessage: true,
 
 	},
 	mutations: {
@@ -15,7 +16,12 @@ export default{
 	getters: {
 		SEND_BYMAIl: state => {
 			return state.SendByMail
-		}
+		},
+		ANSWER: state => {
+			return state.sendingMessage;
+		},
+
+
 	},
 	actions: {
 		SET_FORM: (context, submit) => {
@@ -28,6 +34,7 @@ export default{
 			})
 			.then(function (response) {
 					console.log(response);
+
 			})
 			.catch(function (error) {
 				console.log(error);

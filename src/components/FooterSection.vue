@@ -197,27 +197,17 @@
 					</div>
 			</form>
 		</div>
-		<!-- <frameset rows="80,*" cols="*">
-			<noscript class="footer__counter">
-			<div>
-				<img src="https://mc.yandex.ru/watch/72354526" style="position:absolute; left:-9999px;" alt="" />
+		<div class="modal" v-if="answerTrue">
+			<div class="modal__wrapper">
+				<span class="modal__block">Спасибо ваше сообщение отправлено мы свяжемся с вами в ближайшее время</span>
 			</div>
-		</noscript>
-			<script type="text/javascript">
-				(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-				m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)});
-			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-			ym(72354526, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-			</script> 
-		</frameset> -->
-		<!-- Yandex.Metrika counter -->
+		</div>
 	</div>
 </template>
 
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-import VueYandexMetrika from 'vue-yandex-metrika'  
 
 export default {
 	mixins: [validationMixin],
@@ -233,7 +223,8 @@ export default {
 				contact: null,
 				massage: null,
 				consent: true,
-			}
+			},
+			answerTrue: false,
 		}
 	},
 	methods: {
@@ -249,10 +240,9 @@ export default {
 
 			if (result) {
 				let form = this.feedback;
-				// console.log(form);
 				this.$store.dispatch('SET_FORM', form);
 			} else {
-				alert("ошибка");
+				this.answerTrue = true;
 			}
 		},
 		privacyPolicy: function () {
@@ -260,12 +250,6 @@ export default {
 		}
 	},
 	maunted() {
-				(VueYandexMetrika, {
-				id: 72354526,
-				env: process.env.NODE_ENV
-				// other options
-		})
-		console.log(this.$metrika)
 	},
 	validations: {
 		feedback: {
@@ -466,6 +450,33 @@ export default {
 			width: 50px;
 			height: 100px;
 			background-color: #fff;
+		}
+	}
+	.modal{
+		position: fixed;
+		z-index: 99999999;
+		padding-top: 100px;
+		left: 0;
+		top: 0;
+		display: flex;
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.5);
+
+		&__wrapper{
+			width: 450px;
+			height: 160px;
+			background-color: #fff;
+			margin: auto;
+			display: flex;
+		}
+		&__block{
+			text-align: center;
+			display: block;
+			width: 80%;
+			margin: auto;
 		}
 	}
 	@media (max-width: 1600px){
