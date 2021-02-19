@@ -20,7 +20,7 @@ export default{
 	actions: {
 		SET_FORM: (context, submit) => {
 
-			axios.post('php/mail.php', {
+			axios.post('http://adept-course.ru/php/mail.php', {
 				'name_form': submit.name,
 				'surname_form': submit.surname,
 				'contact_form': submit.contact,
