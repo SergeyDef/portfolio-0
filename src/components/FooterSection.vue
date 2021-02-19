@@ -217,7 +217,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-// import {VueYandexMetrika} from 'vue-yandex-metrika'  
+import VueYandexMetrika from 'vue-yandex-metrika'  
 
 export default {
 	mixins: [validationMixin],
@@ -260,7 +260,12 @@ export default {
 		}
 	},
 	maunted() {
-
+				(VueYandexMetrika, {
+				id: 72354526,
+				env: process.env.NODE_ENV
+				// other options
+		})
+		console.log(this.$metrika)
 	},
 	validations: {
 		feedback: {
