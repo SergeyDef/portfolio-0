@@ -228,21 +228,6 @@
 	@media (max-width: 1450px){
 		.header{
 
-			&__nav{
-			}
-
-			&__link{
-			}
-
-			&__link:hover{
-			}
-
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__additionally{
-			}
 			&__read{
 				width: 90%;
 			}
@@ -252,22 +237,8 @@
 	}
 	@media (max-width: 1200px){
 		.header{
+			width: 90%;
 
-			&__nav{
-			}
-
-			&__link{
-			}
-
-			&__link:hover{
-			}
-
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__additionally{
-			}
 			&__read{
 				width: 100%;
 			}
@@ -375,12 +346,6 @@
 				margin: 3px auto;
 				display: block;
 				background-color: #524c8c;
-			}
-
-			&__link{
-			}
-
-			&__link:hover{
 			}
 
 			&__logo{

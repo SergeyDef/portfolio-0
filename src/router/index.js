@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueYandexMetrika from 'vue-yandex-metrika'
 import Home from '../views/Home.vue'
 // import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 
@@ -32,5 +33,14 @@ const router = new VueRouter({
 	},
 	routes
 })
+
+
+Vue.use(VueYandexMetrika, {
+    id: 72354526,
+    router: router,
+    env: process.env.NODE_ENV
+    // other options
+})
+
 
 export default router

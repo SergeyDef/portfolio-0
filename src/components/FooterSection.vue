@@ -199,7 +199,7 @@
 		</div>
 		<div class="modal" v-if="answerTrue">
 			<div class="modal__wrapper">
-				<span class="modal__block">Спасибо ваше сообщение отправлено мы свяжемся с вами в ближайшее время</span>
+				<span class="modal__block">{{ answerText }}</span>
 			</div>
 		</div>
 	</div>
@@ -225,6 +225,7 @@ export default {
 				consent: true,
 			},
 			answerTrue: false,
+			answerText: null
 		}
 	},
 	methods: {
@@ -240,10 +241,42 @@ export default {
 
 			if (result) {
 				let form = this.feedback;
-				this.$store.dispatch('SET_FORM', form);
-			} else {
-				this.answerTrue = true;
-			}
+				this.$store.dispatch('SET_FORM', form); 
+				this.answerTrue = this.$store.getters.ANSWER;
+
+				let responseServer = this.$store.getters.RESPONSE_SERVER;
+
+				console.log(responseServer);
+
+				// console.log(this.$metrika);
+
+
+				if (!responseServer) {
+					let notHappily = "Отправка формы временно недоступно попробуйте позже или обратитесь к администратору ресурса";
+
+					this.answerText = notHappily;
+					this.answerTrue = true;
+					setTimeout(() => this.answerTrue = false, 3000);
+
+					this.feedback.name = '';
+					this.feedback.surname = '';
+					this.feedback.contact = '';
+					this.feedback.massage = '';
+
+					// this.$v.feedback.massage.required = true;
+				} else if (responseServer) {
+					let happily = "Cпасибо ваше сообщение отправлено мы свяжемся с вами в ближайшее время";
+
+						this.answerText = happily;
+						this.answerTrue = true;
+						setTimeout(() => this.answerTrue = false, 3000);
+
+					this.feedback.name = '';
+					this.feedback.surname = '';
+					this.feedback.contact = '';
+					this.feedback.massage = '';
+				}
+			} 
 		},
 		privacyPolicy: function () {
 			this.$router.push( '/privacy_policy' );
