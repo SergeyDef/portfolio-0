@@ -184,11 +184,28 @@ export default {
 		}
 	}
 	@media (max-width: 967px){
+		.join{
+			&__content{
+				width: 600px;
+			}
+			&__block{
+				width: 460px;
+				height: 540px;
+				margin: 20px auto;
+			}
+		}
 	}
 	@media (max-width: 667px){
 		.join{
 			padding-top: 65px;
 			padding-bottom: 65px;
+
+			&__title{
+				margin-bottom: 30px;
+			}
+			&__title>h3{
+				font-size: 36px;
+			}
 
 			&__content{
 				width: 460px;
@@ -198,6 +215,12 @@ export default {
 				height: 524px;
 				margin: 20px 0;
 			}
+			&__subtitle{
+				width: 460px;
+			}
+			&__subtitle>span{
+				font-size: 1.2rem;
+			}
 		}
 	}
 	@media (max-width: 467px){
@@ -205,8 +228,6 @@ export default {
 			padding-top: 65px;
 			padding-bottom: 60px;
 			
-			&__title{
-			}
 			&__title>h3{
 				font-size: 32px;
 			}

@@ -248,34 +248,18 @@ export default {
 
 				console.log(responseServer);
 
-				// console.log(this.$metrika);
-
-
-				if (!responseServer) {
-					let notHappily = "Отправка формы временно недоступно попробуйте позже или обратитесь к администратору ресурса";
+					let notHappily = "Cпасибо ваше сообщение отправлено, мы свяжемся с вами в ближайшее время";
 
 					this.answerText = notHappily;
 					this.answerTrue = true;
-					setTimeout(() => this.answerTrue = false, 3000);
+					setTimeout(() => this.answerTrue = false, 4000);
 
 					this.feedback.name = '';
 					this.feedback.surname = '';
 					this.feedback.contact = '';
 					this.feedback.massage = '';
 
-					// this.$v.feedback.massage.required = true;
-				} else if (responseServer) {
-					let happily = "Cпасибо ваше сообщение отправлено мы свяжемся с вами в ближайшее время";
-
-						this.answerText = happily;
-						this.answerTrue = true;
-						setTimeout(() => this.answerTrue = false, 3000);
-
-					this.feedback.name = '';
-					this.feedback.surname = '';
-					this.feedback.contact = '';
-					this.feedback.massage = '';
-				}
+					this.$v.feedback.$reset();
 			} 
 		},
 		privacyPolicy: function () {
@@ -499,16 +483,18 @@ export default {
 		background-color: rgba(0,0,0,0.5);
 
 		&__wrapper{
-			width: 450px;
-			height: 160px;
+			width: 460px;
+			height: 200px;
+			padding: 20px;
 			background-color: #fff;
-			margin: auto;
+			margin: 0 auto;
 			display: flex;
+			border: 1px solid rgba(0,0,0,.2);
 		}
 		&__block{
-			text-align: center;
+			@include textContent(1.2rem, 1.55, 600, #000, center, "Gilroy-Bold");
 			display: block;
-			width: 80%;
+			width: 90%;
 			margin: auto;
 		}
 	}
@@ -518,70 +504,8 @@ export default {
 			&__content{
 				padding-left: 12%;
 			}
-			&__lists{
-			}
-			&__block{
-			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
-			}
-			&__item{
-			}
-			&__item>ul{
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-			}
-			&__item>ul>li>span{
-			}
-			&__regulations{
-			}
-			&__direction{
-			}
-			&__direction>span{
-			}
 			.feedback{
 				padding: 0 8% 0 2%;
-
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__input::-webkit-input-placeholder{
-				}
-				&__input:-moz-placeholder{
-				}
-				&__massage{
-				}
-				&__massage::-webkit-input-placeholder{
-				}
-				&__massage:-moz-placeholder{
-				}
-				&__button{
-				}
-				&__button>button{
-				}
 			}
 		}
 	}
@@ -592,77 +516,8 @@ export default {
 				width: 65%;
 				padding-left: 10%;
 			}
-			&__lists{
-			}
-			&__block{
-			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
-			}
-			&__item{
-			}
-			&__item>ul{
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-			}
-			&__item>ul>li>span{
-			}
-			&__regulations{
-			}
-			&__direction{
-			}
-			&__direction>span{
-			}
 			.feedback{
 				padding: 0 8% 0 2%;
-
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__input::-webkit-input-placeholder{
-				}
-				&__input:-moz-placeholder{
-				}
-				&__massage{
-				}
-				&__massage::-webkit-input-placeholder{
-				}
-				&__massage:-moz-placeholder{
-				}
-				&__button{
-				}
-				&__button>button{
-				}
-				.error{
-
-					&__notification>span{
-					}
-					&__message{
-					}
-				}
 			}
 		}
 	}
@@ -672,72 +527,26 @@ export default {
 			&__content{
 				padding-left: 4%;
 			}
-			&__lists{
-			}
 			&__block{
 				width: 36%;
 			}
 			&__block_logo{
 				width: 22%;
 			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
 
-			}
-			&__item{
-
-			}
-			&__item>ul{
-
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-
-			}
-			&__item>ul>li>span{
-
-			}
-			&__regulations{
-			}
-			&__direction{
-			}
-			&__direction>span{
-			}
 			.feedback{
 				flex-direction: column;
 				padding: 0 4% 0 1%;
+			}
+		}
+		.modal{
 
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__massage{
-				}
-				&__button{
-				}
-				&__button>button{
-				}
+			&__wrapper{
+				width: 400px;
+				height: 160px;
+			}
+			&__block{
+				font-size: 1rem;
 			}
 		}
 	}
@@ -751,43 +560,6 @@ export default {
 				padding: 0;
 				order: 1;
 			}
-			&__lists{
-			}
-			&__block{
-			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
-
-			}
-			&__item{
-
-			}
-			&__item>ul{
-
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-
-			}
-			&__item>ul>li>span{
-
-			}
-			&__regulations{
-			}
 			&__direction{
 				padding-top: 0;
 			}
@@ -799,21 +571,6 @@ export default {
 				margin: auto;
 				order: 0;
 
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__massage{
-				}
-				&__button{
-				}
 				&__button>button{
 					width: 40%;
 					height: 45px;
@@ -831,47 +588,8 @@ export default {
 				padding: 0;
 				order: 1;
 			}
-			&__lists{
-			}
-			&__block{
-			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
-
-			}
-			&__item{
-
-			}
-			&__item>ul{
-
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-
-			}
-			&__item>ul>li>span{
-
-			}
-			&__regulations{
-			}
 			&__direction{
 				padding-top: 0;
-			}
-			&__direction>span{
 			}
 			.feedback{
 				width: 460px;
@@ -879,25 +597,20 @@ export default {
 				margin: auto;
 				order: 0;
 
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__massage{
-				}
-				&__button{
-				}
 				&__button>button{
 					width: 40%;
 					height: 45px;
 				}
+			}
+		}
+		.modal{
+
+			&__wrapper{
+				width: 340px;
+				height: 120px;
+			}
+			&__block{
+				font-size: 0.8rem;
 			}
 		}
 	}
@@ -918,37 +631,7 @@ export default {
 				margin: auto;
 				margin-bottom: 30px;
 			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
 
-			}
-			&__item{
-
-			}
-			&__item>ul{
-
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-
-			}
-			&__item>ul>li>span{
-
-			}
 			&__regulations{
 				flex-direction: column;
 			}
@@ -965,21 +648,6 @@ export default {
 				margin: auto;
 				order: 0;
 
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__massage{
-				}
-				&__button{
-				}
 				&__button>button{
 					width: 55%;
 					height: 45px;
@@ -990,69 +658,9 @@ export default {
 	}
 	@media (max-width: 365px){
 		.footer{
-			
-			&__content{
-			}
-			&__lists{
-			}
-			&__block{
-			}
-			&__logo{
-			}
-			&__logo>img{
-			}
-			&__networks{
-			}
-			&__networks>a{
-			}
-			&__adept{
-			}
-			&__adept>span{
-			}
-			&__title{
-			}
-			&__title>h5{
-
-			}
-			&__item{
-
-			}
-			&__item>ul{
-
-			}
-			&__item>ul>li{
-			}
-			&__item>ul>li>a{
-
-			}
-			&__item>ul>li>span{
-
-			}
-			&__regulations{
-			}
-			&__direction{
-			}
-			&__direction>span{
-			}
+		
 			.feedback{
 				width: 280px;
-				&__form{
-				}
-
-				&__title{
-				}
-				&__title>h3{
-				}
-				&__label>span{
-				}
-				&__input{
-				}
-				&__massage{
-				}
-				&__button{
-				}
-				&__button>button{
-				}
 			}
 		}
 	}

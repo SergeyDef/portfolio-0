@@ -150,8 +150,6 @@ export default {
 	@media (max-width: 1200px){
 	.purpose{
 
-		&__block{
-			}
 			&__video{
 				width: 500px;
 			}
@@ -159,30 +157,10 @@ export default {
 				width: 500px;
 				padding-left: 30px;
 			}
-			&__title{
-			}
-			&__title>h3{
-			}
-			&__words{
-			}
-			&__words>p{
-			}
-			&__image{
-			}
-			&__image>img{
-			}
 			&__info{
 			}
 			&__text{
 				width: 800px;
-			}
-			&__text>p{
-			}
-			&__text_bold>p{
-			}
-			&__signUp{
-			}
-			&__signUp>button{
 			}
 		}
 	}
@@ -190,14 +168,19 @@ export default {
 	.purpose{
 
 		&__block{
+			flex-direction: column;
 			}
 			&__video{
-				width: 400px;
+				margin: auto;
+				width: 600px;
 			}
 			&__video>iframe{
-				height: 215px!important;
+				height: 360px!important;
 			}
 			&__purpose{
+				width: 660px;
+				padding: 0;
+				margin: auto;
 			}
 			&__title{
 			}
@@ -214,6 +197,7 @@ export default {
 			&__info{
 			}
 			&__text{
+				width: 600px;
 			}
 			&__text>p{
 			}
@@ -232,9 +216,14 @@ export default {
 				flex-direction: column;
 			}
 			&__video{
+				width: 450px;
 				margin: auto;
 			}
+			&__video>iframe{
+				height: 240px!important;
+			}
 			&__purpose{
+				width: 450px;
 				padding-top: 20px;
 				padding-left: 0;
 				margin: auto;
@@ -256,9 +245,10 @@ export default {
 			&__info{
 			}
 			&__text{
-				width: 560px;
+				width: 460px;
 			}
 			&__text>p{
+				font-size: 1.1rem;
 			}
 			&__text_bold>p{
 			}
@@ -283,6 +273,7 @@ export default {
 				width: 350px;
 			}
 			&__video>iframe{
+				height: 220px!important;
 			}
 			&__purpose{
 				width: 350px;

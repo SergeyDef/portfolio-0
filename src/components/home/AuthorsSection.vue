@@ -129,12 +129,6 @@ export default {
 			&__title{
 				width: 800px;
 			}
-			&__title>h3{
-			}
-			&__subtitle{
-			}
-			&__subtitle>span{
-			}
 			&__content{
 				width: 800px;
 			}
@@ -145,19 +139,25 @@ export default {
 			&__photo{
 				width: 160px;
 			}
-			&__photo>img{
-			}
-			&__name{
-			}
-			&__name>h5{
-			}
-			&__description{
-			}
-			&__description>p{
-			}
 		}
 	}
 	@media (max-width: 967px){
+		.authors{
+
+			&__title{
+				width: 660px;
+			}
+			&__content{
+				width: 660px;
+			}
+			&__block{
+				width: 200px;
+				margin: 0 10px;
+			}
+			&__photo{
+				width: 120px;
+			}
+		}
 	}
 	@media (max-width: 667px){
 		.authors{
@@ -169,31 +169,24 @@ export default {
 			&__title>h3{
 				font-size: 36px;
 			}
-			&__subtitle{
-			}
-			&__subtitle>span{
-			}
 			&__content{
-				width: 560px;
+				width: 400px;
+				padding: 60px 0 50px 0;
+				flex-direction: column;
 			}
 			&__block{
-				width: 176px;
-				margin: 0 5px;
+				width: 350px;
+				margin: auto;
+				padding-top: 50px;
 			}
 			&__photo{
-				width: 110px;
-			}
-			&__photo>img{
-			}
-			&__name{
+				width: 130px;
 			}
 			&__name>h5{
-				font-size: 18px;
-			}
-			&__description{
+				font-size: 1.5rem;
 			}
 			&__description>p{
-				font-size: 12px;
+				font-size: 1rem;
 			}
 		}
 	}
@@ -230,12 +223,6 @@ export default {
 			}
 			&__name{
 				height: 40px;
-			}
-			&__name>h5{
-			}
-			&__description{
-			}
-			&__description>p{
 			}
 		}
 	}
