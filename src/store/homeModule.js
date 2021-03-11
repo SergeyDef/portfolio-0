@@ -3,22 +3,22 @@
 export default{
 	state: {
 		loginModal: false,
-		test: "Helou",
+		regulationModal: false,
 	},
 	mutations: {
-		// OPEN_LOGIN_MODAL (state){
-		// 	state.loginModal = true;
-		// },
-		CLOSE_LOGIN_MODAL (state){
-			state.loginModal = false;
+		LOGIN_MODAL: (state, payloade) => {
+			state.loginModal = payloade;
+		},
+		REGISTRATION: (state, payloade) =>{
+			state.regulationModal = payloade;
 		}
 	},
 	getters: {
-		conditionLoginModal (state){
-			return state.loginModal
+		LOGIN_MODAL: (state) =>{
+			return state.loginModal;
 		},
-		OPEN_LOGIN_MODAL (state){
-			state.loginModal = true;
+		REGISTRATION: (state) =>{
+			return state.regulationModal;
 		}
 	},
 	actions: {

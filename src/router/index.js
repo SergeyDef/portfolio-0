@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueYandexMetrika from 'vue-yandex-metrika'
 import Home from '../views/Home.vue'
-// import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +15,11 @@ const routes = [
 		path: '/privacy_policy',
 		name: 'PrivacyPolicy',
 		component: () => import('../views/PrivacyPolicy.vue') 
+	},
+	{
+		path: '/personal_account',
+		name: 'PersonalAccount',
+		component: () => import('../views/PersonalAccount.vue')
 	}
 ]
 

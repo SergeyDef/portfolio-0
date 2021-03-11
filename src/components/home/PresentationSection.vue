@@ -10,8 +10,14 @@
 					<p>adept Образование для всех</p>
 				</div>
 <!-- 				<div class="presentation__button">
-					<button type="button" class="presentation__signUp btn">Записаться на курс</button>
-					<button type="button" class="presentation__personal btn" @click="openEntrance">Личный кабинет</button>
+					<button 
+						type="button" 
+						class="presentation__signUp btn"
+						@click="openRecording">Записаться на курс</button>
+					<button 
+						type="button"
+						class="presentation__personal btn"
+						@click="openEntrance">Личный кабинет</button>
 				</div> -->
 			</div>
 		</div>
@@ -39,11 +45,15 @@ export default {
 	},
 	data() {
 		return{
+			openModal: true
 		}
 	},
 	methods: {
-		openEntrance: () =>{
-			
+		openEntrance: function (){
+			this.$store.commit('LOGIN_MODAL', this.openModal);
+		},
+		openRecording: function () {
+			this.$store.commit('REGISTRATION', this.openModal);
 		}
 	}
 }
@@ -110,40 +120,44 @@ export default {
 			&__item{}
 		}
 	}
+	@media (max-width: 1300px){
+		.presentation{
+			&__signUp{
+				width: 45%;
+			}
+			&__personal{
+				width: 45%;
+			}
+		}
+	}
 	@media (max-width: 1200px){
 		.presentation{
-
-			&__wrapper{
+			&__signUp{
+				width: 48%;
+				font-size: 0.9rem;
 			}
-			&__info{
-			}
-			&__title{
+			&__personal{
+				width: 48%;
+				font-size: 0.9rem;
 			}
 			&__title>h2{
 				font-size: 25px;
 			}
-			&__text{
-			}
-			&__text>p{
-			}
-			&__button{
-			}
-			&__button>button{
-			}
-			&__signUp{
-			}
-			&__personal{
-			}
-			.slide{
-				&__block{
-				}
-
-				&__item{}
-			}
 		}
 	}
-	@media (max-width: 967px){}
-	@media (max-width: 667px){
+/*	@media (max-width: 967px){
+		.presentation{
+			&__signUp{
+				width: 50%;
+				font-size: 0.8rem;
+			}
+			&__personal{
+				width: 50%;
+				font-size: 0.8rem;
+			}
+		}
+	}*/
+	@media (max-width: 967px){
 		.presentation{
 			display: flex;
 			flex-direction: column;
@@ -151,8 +165,6 @@ export default {
 
 			&__wrapper{
 				width: 100%;
-			}
-			&__info{
 			}
 			&__title{
 				text-align: center;
@@ -178,12 +190,6 @@ export default {
 			&__personal{
 				width: 50%;
 			}
-			.slide{
-				&__block{
-				}
-
-				&__item{}
-			}
 		}
 	}
 	@media (max-width: 467px){
@@ -194,8 +200,6 @@ export default {
 
 			&__wrapper{
 				width: 100%;
-			}
-			&__info{
 			}
 			&__title{
 				text-align: center;

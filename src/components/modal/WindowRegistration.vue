@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
 		<div class="login__wrapper">
-			<div class="login__close">
+			<div class="login__close" @click="closeModalWindow">
 				<div class="login__cross"></div>
 			</div>
 			<form class="login__form">
@@ -40,12 +40,15 @@ export default {
 	},
 	data() {
 		return {
-			loginData: { login: '', password: '' }
+			loginData: { login: '', password: '' },
+			closeModal: false
 		}
 	},
 	methods: {
+		closeModalWindow: function () {
+			this.$store.commit('REGISTRATION', this.closeModal);
+		},
 		sendData: () => {
-			this.$store.dispatch('OPEN_LOGIN_MODAL')
 		}
 	},
 	mounted() {}
@@ -63,6 +66,7 @@ export default {
 	position: fixed;
 	left: 0;
 	top: 0;
+	z-index: 99999999;
 
 	&__wrapper{
 		width: 560px;
@@ -71,6 +75,7 @@ export default {
 		padding: 60px 20px;
 		display: flex;
 		position: relative;
+		z-index: 999999999;
 		background-color: #fff;
 	}
 	&__form{

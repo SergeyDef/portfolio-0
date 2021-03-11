@@ -1,6 +1,5 @@
 <template>
 	<div class="home">
-<!-- 		<button @click="test">TEST</button> -->
 		<a id="aboutAs"></a>
 		<PresentationSection />
 		<a id="ourGoal"></a>
@@ -12,7 +11,8 @@
 		<BuySection />
 		<a id="contacts"></a>
 		<FooterSection />
-		<WindowLogin v-if="$store.getters.conditionLoginModal" />
+		<WindowLogin v-if="$store.getters.LOGIN_MODAL" />
+		<WindowRegistration v-if="$store.getters.REGISTRATION" />
 	</div>
 </template>
 
@@ -23,8 +23,8 @@
 	import AuthorsSection from '@/components/home/AuthorsSection.vue'
   import FooterSection from '@/components/FooterSection.vue'
   import BuySection from '@/components/home/BuySection.vue'
-	import WindowLogin from '@/components/WindowLogin.vue'
-	// import {mapMutations} from "vuex"
+	import WindowLogin from '@/components/modal/WindowLogin.vue'
+	import WindowRegistration from '@/components/modal/WindowRegistration.vue'
 
 export default {
 	name: 'Home',
@@ -36,19 +36,16 @@ export default {
 		FooterSection,
 		BuySection,
 		WindowLogin,
+		WindowRegistration,
 	},
 	props: {
 	},
 	data(){
 		return {
+			WindowLogin: true,
 		}
 	},
 	methods: {
-		// ...mapMutations(["openLoginModal"]),
-		test: () =>{
-			let test = 'this.$store.getters.test';
-			alert(test);
-		}
 	}
 }
 

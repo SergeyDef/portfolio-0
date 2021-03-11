@@ -86,9 +86,6 @@
 				<div class="footer__direction">
 					<span @click="privacyPolicy">политика конфиденциальности</span>
 				</div>
-			
-
-
 			</div>
 		</div>
 		<div class="feedback">
@@ -243,10 +240,6 @@ export default {
 				let form = this.feedback;
 				this.$store.dispatch('SET_FORM', form); 
 				this.answerTrue = this.$store.getters.ANSWER;
-
-				let responseServer = this.$store.getters.RESPONSE_SERVER;
-
-				console.log(responseServer);
 
 					let notHappily = "Cпасибо ваше сообщение отправлено, мы свяжемся с вами в ближайшее время";
 
@@ -442,9 +435,7 @@ export default {
 				@include textContent(14px, 1.55, 300, #fff, left, 'Gilroy-Bold');
 			}
 			&__error{
-				box-shadow: inset 0 0 10px #f80000;
-				/*box-shadow: 0 0 20px #f80000;*/
-				border: solid 1px #f80000;
+				@include errorInput();
 			}
 			.error{
 				display: flex;
