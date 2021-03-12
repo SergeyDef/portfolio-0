@@ -9,10 +9,16 @@
 					<h3>Войти в личный кобинет</h3>
 				</div>
 				<div class="login__field form-group row">
-				<div class="col-sm-12">
-					<label for="name" class="login__label"><span>login</span></label>
-					<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
+					<div class="col-sm-12">
+						<label for="name" class="login__label"><span>Имя</span></label>
+						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
+					</div>
 				</div>
+				<div class="login__field form-group row">
+					<div class="col-sm-12">
+						<label for="name" class="login__label"><span>Фамилия</span></label>
+						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
+					</div>
 				</div>
 				<div class="login__field form-group row">
 					<div class="col-sm-12">

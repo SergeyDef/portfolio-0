@@ -18,7 +18,7 @@
 							placeholder="Иван"
 							v-model.trim="loginData.login" />
 					</div>
-					<error-form v-if="!$v.loginData.login.required" :error="errorText.notificationText" :message="errorText.messageLength" />
+					<error-form v-if="$v.loginData.login.$dirty && !$v.loginData.login.required" :error="errorText.notificationText" :message="errorText.messageLength" />
 				</div>
 				<div class="login__field form-group row">
 					<div class="col-sm-12">
@@ -33,7 +33,7 @@
 							v-model.trim="loginData.password" />
 					</div>
 					<error-form 
-						v-if="!$v.loginData.password.required" 
+						v-if="$v.loginData.password.$dirty && !$v.loginData.password.required" 
 						:error="errorText.notificationText" 
 						:message="errorText.messageLength" />
 					<error-form 
