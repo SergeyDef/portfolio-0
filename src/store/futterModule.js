@@ -6,7 +6,7 @@ export default{
 	state: {
 		SendByMail: { name: "Cira", eg: 78 },
 		responseServer: "",
-
+		response: null,
 	},
 	getters: {
 		SEND_BYMAIl: state => {
@@ -22,6 +22,9 @@ export default{
 		},
 		RESPONSE_SERVER: (state, payloade) => {
 			state.responseServer = payloade;
+		},
+		GET_RESPONSE: (state, payloade) => {
+			state.response = payloade;
 		}
 	},
 	actions: {
@@ -34,13 +37,11 @@ export default{
 				'contact_form': submit.contact,
 				'message_form': submit.message, 
 			})
-			.then(function (response) {
-					console.log(response);
-					context.commit('RESPONSE_SERVER', true);
+			.then(function ({commit}, response) {
+				commit('GET_RESPONSE', response);
 			})
 			.catch(function (error) {
 				console.log(error);
-				context.commit('RESPONSE_SERVER', false);
 			})
 			
 		}

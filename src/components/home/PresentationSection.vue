@@ -9,7 +9,7 @@
 				<div class="presentation__text">
 					<p>adept Образование для всех</p>
 				</div>
-				<div class="presentation__button">
+<!-- 				<div class="presentation__button">
 					<button 
 						type="button" 
 						class="presentation__signUp btn"
@@ -18,7 +18,7 @@
 						type="button"
 						class="presentation__personal btn"
 						@click="openEntrance">Личный кабинет</button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div id="carouselExampleSlidesOnly" class="carousel slide presentation__wrapper" data-ride="carousel">

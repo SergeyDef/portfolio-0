@@ -1,36 +1,44 @@
 <template>
-	<div class="login">
-		<div class="login__wrapper">
-			<div class="login__close" @click="closeModalWindow">
-				<div class="login__cross"></div>
+	<div class="modal">
+		<div class="modal__wrapper">
+			<div class="modal__close" @click="closeModalWindow">
+				<div class="modal__cross"></div>
 			</div>
-			<form class="login__form">
-				<div class="login__title">
-					<h3>Войти в личный кобинет</h3>
+			<form class="modal__form">
+				<div class="modal__title">
+					<h3>Регистрация и оплата курса</h3>
 				</div>
-				<div class="login__field form-group row">
+				<div class="modal__field form-group row">
 					<div class="col-sm-12">
 						<label for="name" class="login__label"><span>Имя</span></label>
 						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
 					</div>
 				</div>
-				<div class="login__field form-group row">
+				<div class="modal__field form-group row">
 					<div class="col-sm-12">
 						<label for="name" class="login__label"><span>Фамилия</span></label>
 						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
 					</div>
 				</div>
-				<div class="login__field form-group row">
+				<div class="modal__field form-group row">
 					<div class="col-sm-12">
-						<label for="surname" class="login__label">
-							<span>password</span>
+						<label for="surname" class="modal__label">
+							<span>Пароль</span>
 						</label>
-						<input type="password" name="surname" class="form-control login__input" placeholder="Иванович" />
+						<input type="password" name="surname" class="form-control modal__input" placeholder="Иванович" />
 					</div>
 				</div>
-				<div class="login__field form-group row">
-					<div class="login__button col-sm-12">
-						<button type="button" class="btn" @click='sendData' >Отправить</button>
+				<div class="modal__field form-group row">
+					<div class="col-sm-12">
+						<label for="surname" class="modal__label">
+							<span>Повторите пароль</span>
+						</label>
+						<input type="password" name="surname" class="form-control modal__input" placeholder="Иванович" />
+					</div>
+				</div>
+				<div class="modal__field form-group row mt-5">
+					<div class="modal__button col-sm-12">
+						<button type="button" class="btn" @click='sendData' >Перейти к оплате</button>
 					</div>
 				</div>
 			</form>
@@ -62,70 +70,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/scss/_mixins.scss';
-@import '~bootstrap/dist/css/bootstrap.min.css';
-.login{
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,0.9);
-	display: flex;
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 99999999;
-
-	&__wrapper{
-		width: 560px;
-		height: auto;
-		margin: auto;
-		padding: 60px 20px;
-		display: flex;
-		position: relative;
-		z-index: 999999999;
-		background-color: #fff;
-	}
-	&__form{
-		width: 90%;
-		margin: auto;
-	}
-	&__button{
-		width: 100%;
-		height: auto;
-		text-align: center;
-	}
-	&__button>button{
-		@include buttonColor(40%, #554991, #fff);
-		/*display: block;*/
-		margin: auto;
-	}
-	&__close{
-		width: 30px;
-		height: 30px;
-		position: absolute;
-		top: -10px;
-		right: -10px;
-		cursor: pointer;
-		background-color: #fff;
-		border: 2px solid #000;
-		border-radius: 30px;
-	}
-	&__cross{
-		width: 18px;
-		height: 3px;
-		transform: rotate(45deg);
-		background-color: #000;
-		position: relative;
-		left: 5px;
-		top: 11px;
-	}
-	&__cross::after{
-		content: "";
-		width: 3px;
-		height: 18px;
-		background-color: #000;
-		position: absolute;
-		left: 7px;
-    top: -7px;
-	}
-}
+	@import '@/scss/_mixins.scss';
+	@import '@/scss/styleForm.scss';
+	@import '~bootstrap/dist/css/bootstrap.min.css';
 </style>
