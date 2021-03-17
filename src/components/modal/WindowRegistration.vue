@@ -1,6 +1,6 @@
 <template>
 	<div class="modal">
-		<div class="modal__wrapper">
+		<div class="modal__wrapper registration">
 			<div class="modal__close" @click="closeModalWindow">
 				<div class="modal__cross"></div>
 			</div>
@@ -9,15 +9,23 @@
 					<h3>Регистрация и оплата курса</h3>
 				</div>
 				<div class="modal__field form-group row">
-					<div class="col-sm-12">
+					<div class="col-sm-6">
 						<label for="name" class="login__label"><span>Имя</span></label>
 						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
 					</div>
+					<div class="col-sm-6">
+						<label for="name" class="login__label"><span>Фамилия</span></label>
+						<input type="text" name="name" class="form-control login__input" placeholder="Иванович" />
+					</div>
 				</div>
 				<div class="modal__field form-group row">
-					<div class="col-sm-12">
-						<label for="name" class="login__label"><span>Фамилия</span></label>
+					<div class="col-sm-6">
+						<label for="name" class="login__label"><span>Телефон</span></label>
 						<input type="text" name="name" class="form-control login__input" placeholder="Иван" />
+					</div>
+					<div class="col-sm-6">
+						<label for="name" class="login__label"><span>Email</span></label>
+						<input type="text" name="name" class="form-control login__input" placeholder="Иванович" />
 					</div>
 				</div>
 				<div class="modal__field form-group row">
@@ -25,7 +33,7 @@
 						<label for="surname" class="modal__label">
 							<span>Пароль</span>
 						</label>
-						<input type="password" name="surname" class="form-control modal__input" placeholder="Иванович" />
+						<input type="password" name="surname" class="form-control modal__input" placeholder="" />
 					</div>
 				</div>
 				<div class="modal__field form-group row">
@@ -33,7 +41,7 @@
 						<label for="surname" class="modal__label">
 							<span>Повторите пароль</span>
 						</label>
-						<input type="password" name="surname" class="form-control modal__input" placeholder="Иванович" />
+						<input type="password" name="surname" class="form-control modal__input" placeholder="" />
 					</div>
 				</div>
 				<div class="modal__field form-group row mt-5">
@@ -73,4 +81,8 @@ export default {
 	@import '@/scss/_mixins.scss';
 	@import '@/scss/styleForm.scss';
 	@import '~bootstrap/dist/css/bootstrap.min.css';
+
+	.registration{
+		width: 660px;
+	}
 </style>
