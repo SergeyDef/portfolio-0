@@ -74,6 +74,9 @@
     left: 7px;
     top: -7px;
   }
+  &__checkbox>label{
+    @include textContent(14px, 1.55, 300, #000, left, 'Gilroy-Bold');
+  }
   &__error{
     @include errorInput();
   }

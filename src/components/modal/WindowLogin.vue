@@ -16,6 +16,7 @@
 							name="name" 
 							class="form-control modal__input" 
 							placeholder="Иван"
+							:class="$v.loginData.login.$dirty && !$v.loginData.login.required ? 'modal__error' : ''"
 							v-model.trim="loginData.login" />
 					</div>
 					<error-form v-if="$v.loginData.login.$dirty && !$v.loginData.login.required" :error="errorText.notificationText" :message="errorText.messageLength" />
@@ -30,6 +31,7 @@
 							name="surname" 
 							class="form-control modal__input" 
 							placeholder=""
+							:class="$v.loginData.password.$dirty && (!$v.loginData.password.required || !$v.loginData.password.minLength) ? 'modal__error' : ''"
 							v-model.trim="loginData.password" />
 					</div>
 					<error-form 
@@ -37,30 +39,31 @@
 						:error="errorText.notificationText" 
 						:message="errorText.messageLength" />
 					<error-form 
-						v-if="!$v.loginData.password.minLength" 
+						v-if="$v.loginData.password.$dirty && !$v.loginData.password.minLength" 
 						:error="errorText.notificationText" 
 						:message="errorText.messagePassword" />
 				</div>
 				<div class="modal__field form-group row">
 					<div class="col-sm-12">
-						<label for="surname" class="modal__label">
+						<label for="doublePassword" class="modal__label">
 							<span>Повторите пароль</span>
 						</label>
 						<input 
 							type="password" 
-							name="surname" 
+							name="doublePassword" 
 							class="form-control modal__input" 
 							placeholder=""
-							v-model.trim="loginData.password" />
+							v-model.trim="loginData.doublePassword" 
+							:class="$v.loginData.doublePassword.$dirty && (!$v.loginData.doublePassword.required || !$v.loginData.doublePassword.sameAsPassword)? 'modal__error' : ''"/>
 					</div>
 					<error-form 
-						v-if="$v.loginData.password.$dirty && !$v.loginData.password.required" 
+						v-if="$v.loginData.doublePassword.$dirty && !$v.loginData.doublePassword.required" 
 						:error="errorText.notificationText" 
 						:message="errorText.messageLength" />
 					<error-form 
-						v-if="!$v.loginData.password.minLength" 
+						v-else-if="$v.loginData.doublePassword.$dirty && !$v.loginData.doublePassword.sameAsPassword" 
 						:error="errorText.notificationText" 
-						:message="errorText.messagePassword" />
+						:message="errorText.massageNotPassword" />
 				</div>
 				<div class="modal__field form-group row mt-5">
 					<div class="modal__button col-sm-12">
@@ -68,14 +71,14 @@
 					</div>
 				</div>
 			</form>
-			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 	import ErrorForm from '@/components/ErrorForm.vue'
 	import { validationMixin } from 'vuelidate'
-	import { required, minLength } from 'vuelidate/lib/validators'
+	import { required, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
 	mixins: [validationMixin],
@@ -114,9 +117,12 @@ export default {
 
 			let result = this.$v.loginData.login.required &&
 			this.$v.loginData.password.required &&
-			this.$v.loginData.password.minLength;
+			this.$v.loginData.password.minLength &&
+			this.$v.loginData.doublePassword.required &&
+			this.$v.loginData.doublePassword.sameAsPassword;
 
 			if (result) {
+				this.$store.commit('LOGIN_DATA', this.loginData);
 				this.$router.push('/personal_account');
 			}
 		}
@@ -127,9 +133,9 @@ export default {
 		loginData: { 
 			login: { required }, 
 			password: { required, minLength: minLength(8) } ,
-			doublePassword: { required }
-		}
-	}
+			doublePassword: { required, sameAsPassword: sameAs('password')},
+		},
+	},
 }
 </script>
 

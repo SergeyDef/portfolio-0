@@ -12,7 +12,8 @@
 		<a id="contacts"></a>
 		<FooterSection />
 		<WindowLogin v-if="$store.getters.LOGIN_MODAL" />
-		<WindowRegistration v-if="$store.getters.REGISTRATION" />
+		<WindowRegistration v-if="$store.getters.REGISTRATION_WINDOW" />
+		<WindowPayment v-if="$store.getters.PAYMENT_WINDOW" />
 	</div>
 </template>
 
@@ -25,6 +26,7 @@
   import BuySection from '@/components/home/BuySection.vue'
 	import WindowLogin from '@/components/modal/WindowLogin.vue'
 	import WindowRegistration from '@/components/modal/WindowRegistration.vue'
+	import WindowPayment from '@/components/modal/WindowPayment.vue'
 
 export default {
 	name: 'Home',
@@ -37,12 +39,12 @@ export default {
 		BuySection,
 		WindowLogin,
 		WindowRegistration,
+		WindowPayment,
 	},
 	props: {
 	},
 	data(){
 		return {
-			WindowLogin: true,
 		}
 	},
 	methods: {

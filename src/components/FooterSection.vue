@@ -44,7 +44,7 @@
 
 				<div class="footer__block">
 					<div class="footer__title">
-						<h5>курс для репетиторов</h5>
+						<h3>курс для репетиторов</h3>
 					</div>
 					<div class="footer__item">
 						<ul>
@@ -63,8 +63,8 @@
 
 				<div class="footer__block">
 					<div class="footer__title">
-						<h5>Мы пишем для вас</h5>
-						<h5>много интересного</h5>
+						<h3>Мы пишем для вас</h3>
+						<h3>много интересного</h3>
 					</div>
 					<div class="footer__item">
 						<ul>
@@ -329,7 +329,7 @@ export default {
 			width: 100%;
 			margin-bottom: 14px;
 		}
-		&__title>h5{
+		&__title>h3{
 			@include textContent(16px, 1.35, 600, #525252, left, 'Gilroy-ExtraBold');
 			margin: 0;
 			text-transform: uppercase;

@@ -1,7 +1,7 @@
 <template>
 	<div class="authors">
 		<div class="authors__title">
-			<h3>Авторы курса</h3>
+			<h2>Авторы курса</h2>
 		</div>
 		<div class="authors__subtitle">
 			<span>Над курсом работали психологи и опытные</span>
@@ -16,7 +16,7 @@
 					<img src="@/assets/authors/photo_1.jpg" alt="photo">
 				</div>
 				<div class="authors__name">
-					<h5>Нуржамал Каримбекова</h5>
+					<h3>Нуржамал Каримбекова</h3>
 				</div>
 				<div class="authors__description">
 					<p>Психолог-имиджмейкер; Специалист по психологии общения и этнопсихологии; Репетитор по русскому языку</p>
@@ -28,7 +28,7 @@
 					<img src="@/assets/authors/photo_2.jpg" alt="photo">
 				</div>
 				<div class="authors__name">
-					<h5>Елена Торина</h5>
+					<h3>Елена Торина</h3>
 				</div>
 				<div class="authors__description">
 					<p>Спикер курса К.т.н., доцент НИУ "МЭИ"; Педагог-психолог; Репетитор по математике, физике и шахматам</p>
@@ -40,7 +40,7 @@
 					<img src="@/assets/authors/photo_3.jpg" alt="photo">
 				</div>
 				<div class="authors__name">
-					<h5>Наталья Краюшкина</h5>
+					<h3>Наталья Краюшкина</h3>
 				</div>
 				<div class="authors__description">
 					<p>Психотерапевт; Специалист по социальной психологии; Педагог по детскому развитию; Частный инструктор по фитнесу</p>
@@ -73,7 +73,7 @@ export default {
 			margin: auto;
 			margin-bottom: 40px;
 		}
-		&__title>h3{
+		&__title>h2{
 			@include textContent(42px, 1.23, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__subtitle{
@@ -112,7 +112,7 @@ export default {
 			height: 60px;
 			margin-bottom: 4px;
 		}
-		&__name>h5{
+		&__name>h3{
 			@include textContent(22px, 1.35, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__description{
@@ -166,7 +166,7 @@ export default {
 			&__title{
 				width: 560px;
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 36px;
 			}
 			&__content{
@@ -182,7 +182,7 @@ export default {
 			&__photo{
 				width: 130px;
 			}
-			&__name>h5{
+			&__name>h3{
 				font-size: 1.5rem;
 			}
 			&__description>p{
@@ -197,7 +197,7 @@ export default {
 			&__title{
 				width: 350px;
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 32px;
 			}
 			&__subtitle{
@@ -219,8 +219,6 @@ export default {
 			&__photo{
 				width: 110px;
 			}
-			&__photo>img{
-			}
 			&__name{
 				height: 40px;
 			}
@@ -234,7 +232,7 @@ export default {
 				width: 320px;
 				margin-bottom: 30px;
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 28px;
 			}
 			&__subtitle{
@@ -251,16 +249,8 @@ export default {
 				width: 320px;
 				padding-top: 40px;
 			}
-			&__photo{
-			}
-			&__photo>img{
-			}
-			&__name{
-			}
-			&__name>h5{
+			&__name>h3{
 				font-size: 20px;
-			}
-			&__description{
 			}
 			&__description>p{
 				font-size: 12px;

@@ -1,7 +1,7 @@
 <template>
 	<div class="join">
 		<div class="join__title">
-			<h3>Присоединяйтесь к нам!</h3>
+			<h2>Присоединяйтесь к нам!</h2>
 		</div>
 		<div class="join__subtitle">
 			<span>Мы подготовили для Вас шесть практических</span>
@@ -16,7 +16,7 @@
 					<img src="@/assets/join/figure_1.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 1. Репетитор - кто это?</h5>
+					<h3>Урок 1. Репетитор - кто это?</h3>
 				</div>
 				<div class="join__text">
 					<p>Кто такой репетитор и зачем его приглашают?</p>
@@ -31,7 +31,7 @@
 					<img src="@/assets/join/figure_2.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 2. Как начать?</h5>
+					<h3>Урок 2. Как начать?</h3>
 				</div>
 				<div class="join__text">
 					<p>С чего начинается путь репетитора?</p>
@@ -47,7 +47,7 @@
 					<img src="@/assets/join/figure_3.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 3. Первая встреча</h5>
+					<h3>Урок 3. Первая встреча</h3>
 				</div>
 				<div class="join__text">
 					<p>Первое взаимодействие: как сразу расположить к себе клиента и узнать максимум нужной информации? Шаблон первого разговора.</p>
@@ -61,7 +61,7 @@
 					<img src="@/assets/join/figure_4.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 4. Долгосрочное взаимодействие</h5>
+					<h3>Урок 4. Долгосрочное взаимодействие</h3>
 				</div>
 				<div class="join__text">
 					<p>Выстраивание партнерских отношений и важность доверия.</p>
@@ -78,7 +78,7 @@
 					<img src="@/assets/join/figure_5.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 5. Репетитор-профессионал</h5>
+					<h3>Урок 5. Репетитор-профессионал</h3>
 				</div>
 				<div class="join__text">
 					<p>Почему полезно изучать психологию и педагогику?</p>
@@ -93,7 +93,7 @@
 					<img src="@/assets/join/figure_6.svg" alt="figure">
 				</div>
 				<div class="join__name">
-					<h5>Урок 3. Освоение новых форматов</h5>
+					<h3>Урок 3. Освоение новых форматов</h3>
 				</div>
 				<div class="join__text">
 					<p>Работа с группами: как перейти к группам и не сделать хуже себе и ученикам? Как мотивировать к работе в коллективе? Сколько учеников должно быть в группе? Какие трудности и подводные камни такого формата?</p>
@@ -129,7 +129,7 @@ export default {
 		&__title{
 			margin-bottom: 40px;
 		}
-		&__title>h3{
+		&__title>h2{
 			@include textContent(42px, 1.23, 600, #000, center, 'Gilroy-ExtraBold');
 		}
 		&__subtitle{
@@ -168,7 +168,7 @@ export default {
 		&__name{
 			margin-bottom: 15px;
 		}
-		&__name>h5{
+		&__name>h3{
 			@include textContent(22px, 1.35, 500, #000, left, 'Gilroy-Bold');
 		}
 		&__text>p{
@@ -203,7 +203,7 @@ export default {
 			&__title{
 				margin-bottom: 30px;
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 36px;
 			}
 
@@ -228,7 +228,7 @@ export default {
 			padding-top: 65px;
 			padding-bottom: 60px;
 			
-			&__title>h3{
+			&__title>h2{
 				font-size: 32px;
 			}
 			&__subtitle{
@@ -259,7 +259,7 @@ export default {
 			
 			&__title{
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 26px;
 			}
 			&__subtitle{

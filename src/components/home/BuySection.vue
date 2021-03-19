@@ -1,8 +1,7 @@
 <template>
 	<div class="buy">
 		<div class="buy__title">
-			<h2>Приобретая наш курс вы</h2>
-			<h2>получите:</h2>
+			<h2>Приобретая наш курс вы получите:</h2>
 		</div>
 		<div class="buy__wrapper">
 			<ul class="buy__list">

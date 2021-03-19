@@ -6,7 +6,7 @@
 			</div>
 			<div class="purpose__purpose">
 				<div class="purpose__title">
-					<h3>Наша цель</h3>
+					<h2>Наша цель</h2>
 				</div>
 				<div class="purpose__words">
 					<p>Цель данного курса – осветить главные вопросы, возникающие у начинающих репетиторов. Здесь собраны основные практические рекомендации от опытных педагогов и психологов.</p>
@@ -67,7 +67,7 @@ export default {
 		&__title{
 			padding-bottom: 20px;
 		}
-		&__title>h3{
+		&__title>h2{
 			text-align: left;
 			color: #fff;
 			line-height: 1.23;
@@ -157,8 +157,6 @@ export default {
 				width: 500px;
 				padding-left: 30px;
 			}
-			&__info{
-			}
 			&__text{
 				width: 800px;
 			}
@@ -182,30 +180,8 @@ export default {
 				padding: 0;
 				margin: auto;
 			}
-			&__title{
-			}
-			&__title>h3{
-			}
-			&__words{
-			}
-			&__words>p{
-			}
-			&__image{
-			}
-			&__image>img{
-			}
-			&__info{
-			}
 			&__text{
 				width: 600px;
-			}
-			&__text>p{
-			}
-			&__text_bold>p{
-			}
-			&__signUp{
-			}
-			&__signUp>button{
 			}
 		}
 	}
@@ -228,21 +204,11 @@ export default {
 				padding-left: 0;
 				margin: auto;
 			}
-			&__title{
-			}
-			&__title>h3{
+			&__title>h2{
 				text-align: center;
-			}
-			&__words{
 			}
 			&__words>p{
 				text-align: center;
-			}
-			&__image{
-			}
-			&__image>img{
-			}
-			&__info{
 			}
 			&__text{
 				width: 460px;
@@ -280,7 +246,7 @@ export default {
 			}
 			&__title{
 			}
-			&__title>h3{
+			&__title>h2{
 				font-size: 32px;
 			}
 			&__words{
@@ -324,7 +290,7 @@ export default {
 				}
 				&__title{
 				}
-				&__title>h3{
+				&__title>h2{
 					font-size: 28px;
 				}
 				&__words{

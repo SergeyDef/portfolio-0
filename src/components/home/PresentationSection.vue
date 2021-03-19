@@ -53,7 +53,7 @@ export default {
 			this.$store.commit('LOGIN_MODAL', this.openModal);
 		},
 		openRecording: function () {
-			this.$store.commit('REGISTRATION', this.openModal);
+			this.$store.commit('REGISTRATION_WINDOW', this.openModal);
 		}
 	}
 }
