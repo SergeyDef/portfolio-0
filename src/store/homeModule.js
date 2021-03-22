@@ -12,6 +12,9 @@ export default{
 		LOGIN_MODAL: (state, payloade) => {
 			state.loginModal = payloade;
 		},
+		LOGIN_DATA: (state, payloade) =>{
+			state.loginData = payloade;
+		},
 		REGISTRATION_WINDOW: (state, payloade) =>{
 			state.regulationModal = payloade;
 		},

@@ -2,26 +2,27 @@
 	<div class="account">
 		<div class="container-fluid">
 			<div class="row account__wrapper">
-				<aside class="col-2 col-sm-2 col-md-1 col-xl-2 account__menu"></aside>
+				<aside class="col-2 col-sm-2 col-md-1 col-xl-2 account__menu">
+					<course-menu></course-menu>
+				</aside>
 				<main 
 					class="col-8 col-sm-8 col-md-6 col-xl-6 pt-5 account__content" >
 						<section 
 							class="account__block course px-2 py-3 mb-5" 
 							v-for="course in courses"
 							:key="course.id">
-						<div class="course__title">
+						<div class="course__title px-3">
 							<h2>{{ course.title }}</h2>
 						</div>
 						<hr class="course__line my-1" />
-							<ul  class="course__wrapper w-100 container-fluid mx-5">
-								<li v-for="item in course.lessons" :key="item.id"  class="course__block row">
-									<div class="col-sm-3"></div>
-									<div class="col-xl-9">
-										<div>
-											<h5>{{ item.titleVideo }}</h5>
-										</div>
-										<div>
-											<span>{{ item.text }}</span>
+							<ul  class="course__wrapper w-100 container-fluid px-1">
+								<li v-for="item in course.lessons" :key="item.id"  class="course__block row my-3">
+									<div class="col-sm-2 course__icon">
+										<img :src="item.images">
+									</div>
+									<div class="col-xl-10">
+										<div class="course__name">
+											<h3>{{ item.titleVideo }}</h3>
 										</div>
 									</div>
 								</li>
@@ -64,11 +65,13 @@
 
 <script>
   import FooterSection from '@/components/FooterSection.vue'
+  import CourseMenu from '@/components/account/CourseMenu.vue'
 
 export default {
 	name: 'PersonalAccount',
 	components: {
 		FooterSection,
+		CourseMenu,
 	},
 	props: {
 	},
@@ -81,10 +84,9 @@ export default {
 	},
 	mounted(){
 		let getCourse = this.$store.getters.GET_COURSE;
-		for (var i = 0; i < getCourse.length; ++i) {
-			console.log(getCourse[i].lessons);
-		}
-		console.log(getCourse);
+		// for (var i = 0; i < getCourse.length; ++i) {
+		// 	console.log(getCourse[i].lessons);
+		// }
 		this.courses = getCourse;
 	}
 }
@@ -101,7 +103,6 @@ export default {
 		background-color: #F4F7F9;
 	}
 	&__content{
-		overflow: auto;
 		background-color: #F4F7F9;
 	}
 	&__block{
@@ -109,6 +110,34 @@ export default {
 		min-height: 300px;
 		background-color: #fff;
 	}
+	.course{
+
+		&__title{
+			@include textContent(0.7rem, 1.23, 600, #000, left, 'Gilroy-ExtraBold');
+		}
+		&__wrapper{
+			width: 100%;
+			height: auto;
+		}
+		&__icon{
+		width: 80px;
+		height: 80px;
+		margin: auto;
+		}
+		&__icon>img{
+			width: 80px;
+			height: 80px;
+		}
+		&__name{
+			height: 100%;
+			display: flex;
+		}
+		&__name>h3{
+			@include textContent(24px, 1.5, 300, #000, left, 'Gilroy-Medium');
+			margin: auto 0;
+		}
+	}
+
 	&__chat{
 	}
 	.chat{

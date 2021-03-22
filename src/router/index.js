@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Meta from 'vue-meta'
 import VueYandexMetrika from 'vue-yandex-metrika'
 import Home from '../views/Home.vue'
-import firebase from 'firebase/app'
+// import firebase from 'firebase/app'
 
 Vue.use(Meta, {
 	keyName: 'metaInfo',
@@ -19,17 +19,19 @@ const routes = [
 	{
 		path: '/',
 		name: 'Home',
-		component: Home
+		meta: {page: 'home'},
+		component: Home,
 	},
 	{
 		path: '/privacy_policy',
 		name: 'PrivacyPolicy',
+		meta: {page: 'policy'},
 		component: () => import('../views/PrivacyPolicy.vue') 
 	},
 	{
 		path: '/personal_account',
 		name: 'PersonalAccount',
-		meta: {auth: true},
+		meta: {auth: true, page: 'account'},
 		component: () => import('../views/PersonalAccount.vue')
 	}
 ]
@@ -57,15 +59,15 @@ Vue.use(VueYandexMetrika, {
 	// other options
 })
 
-router.beforeEach((to, from, next)=>{
-	const correntUser = firebase.auth().currentUser;
-	const requireAuth = to.matched.some(recored => record.meta.auth);
+// router.beforeEach((to, from, next)=>{
+// 	const correntUser = firebase.auth().currentUser;
+// 	const requireAuth = to.matched.some(recored => record.meta.auth);
 
-	if (requireAuth && !currentUser) {
-		next('/login?massage=login');
-	} else {
-		next()
-	}
-})
+// 	if (requireAuth && !currentUser) {
+// 		next('/login?massage=login');
+// 	} else {
+// 		next()
+// 	}
+// })
 
 export default router

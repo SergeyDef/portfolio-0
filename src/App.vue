@@ -30,5 +30,13 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 #app {
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>

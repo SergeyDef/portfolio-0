@@ -27,11 +27,8 @@
 				</li>
 			</ul>
 		</div>
-		<div class="header__additionally">
-			<div class="header__read">
-				<a href="https://zen.yandex.ru/adept"><span>Читайте нас!</span></a>
-			</div>
-		</div>
+		<normal-header class="header__additionally" v-if="pageIndicator" ></normal-header>
+		<account-header class="header__additionally" v-else-if="!pageIndicator"></account-header>
 
 		<div class="nav_adaptiv" v-if="showNavAdaptiv">
 			<div class="nav_adaptiv__close" id="1" @click="closeMenu">
@@ -59,8 +56,15 @@
 </template>
 
 <script>
+	import NormalHeader from '@/components/header/NormalHeader.vue'
+	import AccountHeader from '@/components/header/AccountHeader.vue'
+
 	export default {
 		name: 'Header',
+		components: {
+			NormalHeader,
+			AccountHeader,
+		},
 		props: {
 			msg: String
 		},
@@ -68,6 +72,7 @@
 			return{
 				showNavAdaptiv: false,
 				hideBurger: true,
+				pageIndicator: true,
 			}
 		},
 		methods: {
@@ -85,6 +90,19 @@
 				this.$router.push({name: 'Home', hash: href});
 				this.showNavAdaptiv = false;
 				this.hideBurger = true;
+			}
+		},
+		computed: {
+			page() {
+				console.log(this.$route.meta.page);
+				return this.$route.meta.page
+			}
+		},
+		mounted(){
+			if (this.page == 'account') {
+				this.pageIndicator = false;
+			} else if (this.page !== 'account') {
+				this.pageIndicator = true;
 			}
 		}
 	}
@@ -143,26 +161,6 @@
 		&__additionally{
 			width: 20%;
 			display: flex;
-		}
-		&__read{
-			width: 70%;
-			margin: auto 0;
-			display: flex;
-		}
-		&__read>a{
-			margin: 0;
-			border: solid 3px #0056d3;
-			border-radius: 0;
-			width: 100%;
-			display: flex;
-			padding: 8px 30px;
-			text-decoration: none;
-			font-family: 'Gilroy-Medium';
-		}
-		&__read>a>span{
-			margin: auto;
-			color: #000000;
-			font-weight: 400;
 		}
 		.nav_adaptiv{
 			position: fixed;
@@ -226,24 +224,10 @@
 		}
 	}
 	@media (max-width: 1450px){
-		.header{
-
-			&__read{
-				width: 90%;
-			}
-			&__read>button{
-			}
-		}
 	}
 	@media (max-width: 1200px){
 		.header{
 			width: 90%;
-
-			&__read{
-				width: 100%;
-			}
-			&__read>button{
-			}
 		}
 	}
 	@media (max-width: 967px){
@@ -276,50 +260,18 @@
 				display: block;
 				background-color: #524c8c;
 			}
-			&__link{
-			}
-
-			&__link:hover{
-			}
 
 			&__logo{
 				margin: auto;
 				width: 20%;
-			}
-			&__logo>img{
 			}
 			&__additionally{
 				width: 40%;
 				margin: auto;
 				padding-top: 40px;
 			}
-			&__read{
-				margin: auto;
-			}
-			&__read>a>span{
-				font-size: 16px;
-			}
-			&__read>button{
-			}
 			.nav_adaptiv{
 				width: 54%;
-
-				&__close{
-
-				}
-				&__close>div{
-				}
-				&__close>div::before{
-				}
-				&__close>div::after{
-				}
-
-				&__list{
-				}
-				&__item{
-				}
-				&__item>span>a{
-				}
 			}
 		}
 	}
@@ -352,17 +304,10 @@
 				margin: auto;
 				width: 30%;
 			}
-			&__logo>img{
-			}
 			&__additionally{
 				width: 50%;
 				margin: auto;
 				padding-top: 40px;
-			}
-			&__read{
-				margin: auto;
-			}
-			&__read>button{
 			}
 			.nav_adaptiv{
 				width: 60%;
@@ -373,17 +318,8 @@
 					right: 5px;
 					top: 5px;
 				}
-				&__close>div{
-				}
-				&__close>div::before{
-				}
-				&__close>div::after{
-				}
-
 				&__list{
 					padding: 70px 0 0 50px;
-				}
-				&__item{
 				}
 				&__item>span{
 					font-size: 18px;
@@ -401,12 +337,6 @@
 				display: none;
 			}
 
-			&__link{
-			}
-
-			&__link:hover{
-			}
-
 			&__logo{
 				margin: auto;
 				width: 30%;
@@ -418,29 +348,7 @@
 				margin: auto;
 				padding-top: 40px;
 			}
-			&__read{
-				width: 100%;
-				margin: auto;
-			}
-			&__read>button{
-			}
-			&__read>a{
-			}
 			.nav_adaptiv{
-
-				&__close{
-				}
-				&__close>div{
-				}
-				&__close>div::before{
-				}
-				&__close>div::after{
-				}
-
-				&__list{
-				}
-				&__item{
-				}
 				&__item>span{
 					font-size: 14px;
 				}
@@ -450,46 +358,11 @@
 	@media (max-width: 367px){
 		.header{
 
-			&__nav{
-			}
-
-			&__link{
-			}
-
-			&__link:hover{
-			}
-
-			&__logo{
-			}
-			&__logo>img{
-			}
 			&__additionally{
 				width: 60%;
 			}
-			&__read{
-			}
-			&__read>button{
-			}
-			&__read>a{
-			}
 			.nav_adaptiv{
 				width: 70%;
-
-				&__close{
-				}
-				&__close>div{
-				}
-				&__close>div::before{
-				}
-				&__close>div::after{
-				}
-
-				&__list{
-				}
-				&__item{
-				}
-				&__item>span>a{
-				}
 			}
 		}
 	}
