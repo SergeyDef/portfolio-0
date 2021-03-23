@@ -1,11 +1,11 @@
 <template>
-	<new class="menu">
+	<nav class="menu">
 		<ul>
 			<li>
 				<span>Все пользователи</span>
 			</li>
 		</ul>
-	</new>
+	</nav>
 </template>
 
 <script>

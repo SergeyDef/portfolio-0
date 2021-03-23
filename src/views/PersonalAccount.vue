@@ -7,27 +7,8 @@
 				</aside>
 				<main 
 					class="col-8 col-sm-8 col-md-6 col-xl-6 pt-5 account__content" >
-						<section 
-							class="account__block course px-2 py-3 mb-5" 
-							v-for="course in courses"
-							:key="course.id">
-						<div class="course__title px-3">
-							<h2>{{ course.title }}</h2>
-						</div>
-						<hr class="course__line my-1" />
-							<ul  class="course__wrapper w-100 container-fluid px-1">
-								<li v-for="item in course.lessons" :key="item.id"  class="course__block row my-3">
-									<div class="col-sm-2 course__icon">
-										<img :src="item.images">
-									</div>
-									<div class="col-xl-10">
-										<div class="course__name">
-											<h3>{{ item.titleVideo }}</h3>
-										</div>
-									</div>
-								</li>
-							</ul>
-					</section>
+					<router-view></router-view>
+<!-- 					<course-course></course-course> -->
 				</main>
 				<aside class="col-2 col-sm-2 col-md-5 col-xl-4 account__chat chat">
 					<div class="m-auto chat__block">
@@ -77,17 +58,11 @@ export default {
 	},
 	data(){
 		return {
-			courses: []
 		}
 	},
 	methods: {
 	},
 	mounted(){
-		let getCourse = this.$store.getters.GET_COURSE;
-		// for (var i = 0; i < getCourse.length; ++i) {
-		// 	console.log(getCourse[i].lessons);
-		// }
-		this.courses = getCourse;
 	}
 }
 
@@ -105,39 +80,6 @@ export default {
 	&__content{
 		background-color: #F4F7F9;
 	}
-	&__block{
-		width: 100%;
-		min-height: 300px;
-		background-color: #fff;
-	}
-	.course{
-
-		&__title{
-			@include textContent(0.7rem, 1.23, 600, #000, left, 'Gilroy-ExtraBold');
-		}
-		&__wrapper{
-			width: 100%;
-			height: auto;
-		}
-		&__icon{
-		width: 80px;
-		height: 80px;
-		margin: auto;
-		}
-		&__icon>img{
-			width: 80px;
-			height: 80px;
-		}
-		&__name{
-			height: 100%;
-			display: flex;
-		}
-		&__name>h3{
-			@include textContent(24px, 1.5, 300, #000, left, 'Gilroy-Medium');
-			margin: auto 0;
-		}
-	}
-
 	&__chat{
 	}
 	.chat{

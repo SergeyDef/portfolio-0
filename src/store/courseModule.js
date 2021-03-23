@@ -25,15 +25,33 @@ export default{
 						video: "https://youtu.be/Kafz87w_S6E?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", 
 						material: "" 
 					},
-					{ id:3, titleVideo: "Урок 3", text: "Описание видео", images: "https://i.pinimg.com/originals/68/45/4c/68454c5ad34a4c93e9365d505fbafd8e.jpg", video: "https://youtu.be/GD5y3WQBKH4?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", material: "" }
+					{ 
+						id:3, 
+						titleVideo: "Урок 3", 
+						text: "Описание видео", 
+						images: "https://i.pinimg.com/originals/68/45/4c/68454c5ad34a4c93e9365d505fbafd8e.jpg", 
+						video: "https://youtu.be/GD5y3WQBKH4?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", 
+						material: "" 
+					}
 				]
 			},
 			{ 
 				id: 2,
 				title: "Заголовок",
 				lessons: [
-					{ id:4, titleVideo: "Заголовок видео", images: "@/assets/personal/course.png", text: "Описание видео", video: "https://youtu.be/YGH9wOIcrSA?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", material: "" },
-					{ id:5, titleVideo: "Заголовок видео", images: "@/assets/personal/course.png", text: "Описание видео", video: "https://youtu.be/dfdBv7G5X_Y?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", material: "" },
+					{ 
+						id:4, 
+						titleVideo: "Заголовок видео", 
+						images: "@/assets/personal/course.png", 
+						text: "Описание видео", video: "https://youtu.be/YGH9wOIcrSA?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", 
+						material: "" 
+					},
+					{ 
+						id:5, 
+						titleVideo: "Заголовок видео", 
+						images: "@/assets/personal/course.png", 
+						video: "https://youtu.be/dfdBv7G5X_Y?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", 
+					},
 					{ id:6, titleVideo: "Заголовок видео", images: "@/assets/personal/course.png", text: "Описание видео", video: "https://youtu.be/AfkUu4TDBK8?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", material: "" }
 				]
 			},
@@ -47,10 +65,23 @@ export default{
 				]
 			}
 		],
+		video: [
+			{ 
+				id:1, 
+				titleVideo:"Урок 1. Репититор - кто это?", 
+				images: "https://c.wallhere.com/photos/3c/3c/1708x1668_px_Dark_fantasy_occult_religion_wicca_Wiccan_witch-1600921.jpg!d", 
+				text: "Описание видео", 
+				video: "https://youtu.be/iRGHYrF40sI?list=PLpHpo8xoicnVQzjL9lIC1YLmgE7QvMGSj", 
+				material: "" 
+			}
+		],
 	},
 	getters: {
 		GET_COURSE: (state) =>{
 			return state.courseVideo
+		},
+		GET_VIDEO: (state) =>{
+			return state.video
 		}
 	},
 	mutations: {

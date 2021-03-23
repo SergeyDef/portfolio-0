@@ -32,7 +32,19 @@ const routes = [
 		path: '/personal_account',
 		name: 'PersonalAccount',
 		meta: {auth: true, page: 'account'},
-		component: () => import('../views/PersonalAccount.vue')
+		component: () => import('../views/PersonalAccount.vue'),
+		children: [
+			{
+				path: '/',
+				name: 'course',
+				component: () => import('../components/account/CourseCourse.vue'),
+			},
+			{
+				path: 'video',
+				name: 'video',
+				component: () => import('../components/account/CourseVideo.vue'),
+			}
+		]
 	}
 ]
 
