@@ -37,12 +37,22 @@ const routes = [
 			{
 				path: '/',
 				name: 'course',
-				component: () => import('../components/account/CourseCourse.vue'),
+				component: () => import('../components/account/CentralBlock/CourseCourse.vue'),
 			},
 			{
 				path: 'video',
 				name: 'video',
-				component: () => import('../components/account/CourseVideo.vue'),
+				component: () => import('../components/account/CentralBlock/CourseVideo.vue'),
+			},
+			{
+				path: 'users',
+				name: 'users',
+				component: () => import('../components/account/CentralBlock/AllUsers.vue'),
+			},
+			{
+				path: 'user',
+				name: 'user',
+				component: () => import('../components/account/CentralBlock/User.vue'),
 			}
 		]
 	}

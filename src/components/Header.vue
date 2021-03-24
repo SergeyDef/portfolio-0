@@ -27,8 +27,8 @@
 				</li>
 			</ul>
 		</div>
-		<normal-header class="header__additionally" v-if="pageIndicator" ></normal-header>
-		<account-header class="header__additionally" v-else-if="!pageIndicator"></account-header>
+		<normal-header class="header__additionally" v-if="!pageIndicator" ></normal-header>
+		<account-header class="header__additionally" v-else-if="pageIndicator"></account-header>
 
 		<div class="nav_adaptiv" v-if="showNavAdaptiv">
 			<div class="nav_adaptiv__close" id="1" @click="closeMenu">
@@ -130,16 +130,7 @@
 		&__link{
 			cursor: pointer;
 			font-size: 1rem;
-			cursor: pointer;
-		}
-		&__link>a{
-			text-decoration: none;
-			font-size: 1rem;
-			color: #000;
 			font-family: 'Gilroy-Medium';
-		}
-		&__link>a:hover{
-			color: #0056d3;
 		}
 
 		&__link:hover{
@@ -215,11 +206,7 @@
 				margin: 15px 0;
 			}
 			&__item>span{
-				color: #fff;
-				font-size: 24px;
-				font-weight: 700;
-				text-decoration: none;
-				font-family: 'Gilroy-Bold';
+				@include textContent(1.6rem, 1.5, 700, #fff, left, 'Gilroy-Bold');
 			}
 		}
 	}
