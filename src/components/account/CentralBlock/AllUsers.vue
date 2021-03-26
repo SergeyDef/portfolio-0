@@ -3,10 +3,10 @@
 		<section class="video course users px-2 py-3 mb-5">
 			<div class="search px-3 container-fluid">
 				<form class="search__form form-group row">
-					<div class="col-xl-4 modal__button">
-						<button type="button" class="btn">найти</button>
+					<div class="col-2 col-xl-2 modal__button">
+						<button type="button" class="btn w-100">найти</button>
 					</div>
-					<div class="col-xl-8">
+					<div class="сol-10 col-xl-10">
 						<input type="text" name="" class="form-control modal__input">
 					</div>
 				</form>

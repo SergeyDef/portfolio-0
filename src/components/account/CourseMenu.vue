@@ -19,6 +19,7 @@ export default {
 					id:1,
 					name:'Все пользователи',
 					href:'users',
+					exact: true
 				},
 				{
 					id:2,

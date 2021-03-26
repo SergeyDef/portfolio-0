@@ -31,8 +31,8 @@ const routes = [
 	{
 		path: '/personal_account',
 		name: 'PersonalAccount',
-		meta: {auth: true, page: 'account'},
 		component: () => import('../views/PersonalAccount.vue'),
+		meta: {page: 'account'},
 		children: [
 			{
 				path: '/',

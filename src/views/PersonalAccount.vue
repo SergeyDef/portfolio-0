@@ -62,7 +62,13 @@ export default {
 	},
 	methods: {
 	},
+	computed: {
+			page() {
+			return this.$route.meta
+		}
+	},
 	mounted(){
+		this.$store.commit('GET_PAGE_INDICATOR', this.page);
 	}
 }
 

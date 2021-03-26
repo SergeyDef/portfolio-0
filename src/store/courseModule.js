@@ -82,7 +82,7 @@ export default{
 					],
 				bonuses: [
 					{ id:1, textBonus: "Памятка к уроку", link: "" },
-					{ id:1, textBonus: "Бонус! Официальное оформление репетиторской деятельности", link: "" },
+					{ id:2, textBonus: "Бонус! Официальное оформление репетиторской деятельности", link: "" },
 				]
 			}
 		],
@@ -141,21 +141,5 @@ export default{
 		}
 	},
 	actions: {
-		// GET_COURSE: (context, submit) => {
-
-		// axios.post('', {
-		// 	})
-		// 	.then(function (response) {
-		// 			console.log(response);
-
-		// 			context.commit('GET_COURSE', true);
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.log(error);
-		// 		context.commit('GET_COURSE', false);
-
-		// 	});
-			
-		// }
 	},
 }

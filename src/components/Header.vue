@@ -27,8 +27,8 @@
 				</li>
 			</ul>
 		</div>
-		<normal-header class="header__additionally" v-if="!pageIndicator" ></normal-header>
-		<account-header class="header__additionally" v-else-if="pageIndicator"></account-header>
+		<normal-header class="header__additionally" v-if="pageIndicator" ></normal-header>
+		<account-header class="header__additionally" v-else-if="!pageIndicator"></account-header>
 
 		<div class="nav_adaptiv" v-if="showNavAdaptiv">
 			<div class="nav_adaptiv__close" id="1" @click="closeMenu">
@@ -72,7 +72,7 @@
 			return{
 				showNavAdaptiv: false,
 				hideBurger: true,
-				pageIndicator: true,
+				pageIndicator: this.$store.getters.GET_PAGE_INDICATOR,
 			}
 		},
 		methods: {
@@ -92,16 +92,12 @@
 				this.hideBurger = true;
 			}
 		},
-		computed: {
-			page() {
-				console.log(this.$route.meta.page);
-				return this.$route.meta.page
-			}
-		},
 		mounted(){
-			if (this.page == 'account') {
+			let page = this.$store.getters.GET_PAGE_INDICATOR;
+			console.log(page);
+			if (page == 'home') {
 				this.pageIndicator = false;
-			} else if (this.page !== 'account') {
+			} else if (this.page !== 'home') {
 				this.pageIndicator = true;
 			}
 		}
