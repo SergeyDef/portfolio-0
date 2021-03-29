@@ -1,6 +1,3 @@
-// import Vue from 'vue'
-// import Vuex from 'vuex'
-// import axios from 'axios'
 
 export default{
 	state: {
@@ -13,6 +10,7 @@ export default{
 	},
 	mutations: {
 		GET_PAGE_INDICATOR: (state, payloade) => {
+			console.log(payloade);
 			state.pageIndicator = payloade;
 		}
 	},
