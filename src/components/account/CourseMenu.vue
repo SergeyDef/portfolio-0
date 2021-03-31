@@ -5,6 +5,11 @@
 				<span class="nav-link" :id="item.href" @click="go">{{item.name}}</span>
 			</li>
 		</ul>
+		<div class="menu__burger">
+			<span class="w-100 mx-2 my-1"></span>
+			<span class="w-50 mx-2 my-1"></span>
+			<span class="w-100 mx-2 my-1"></span>
+		</div>
 	</nav>
 </template>
 
@@ -60,5 +65,40 @@ export default {
 		background-color: #525252;
 		color: #fff;
 	}
+	&__burger{
+		display: none;
+	}
+}
+@media (max-width: 1450px){
+}
+@media (max-width: 1200px){
+	.menu{
+		&__block{
+			display: none;
+		}
+		&__burger{
+			width: 45px;
+			height: 45px;
+			display: block;
+			cursor: pointer;
+			margin-top: 60px;
+		}
+		&__burger>span{
+			height: 10px;
+			display: block;
+			border-radius: 10px;
+			background-color: #007bff;
+		}
+	}
+}
+@media (max-width: 967px){
+}
+@media (max-width: 667px){
+}
+@media (max-width: 567px){
+}
+@media (max-width: 467px){
+}
+@media (max-width: 367px){
 }
 </style>

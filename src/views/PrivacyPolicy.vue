@@ -171,6 +171,14 @@ export default {
 		}
 	},
 	methods: {
+	},
+	computed: {
+			page() {
+			return this.$route.meta.page
+		}
+	},
+	mounted(){
+		this.$store.commit('GET_PAGE_INDICATOR', this.page);
 	}
 }
 

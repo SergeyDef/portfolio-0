@@ -6,7 +6,7 @@
 			</div>
 			<form class="modal__form" @submit.prevent="sendData">
 				<div class="modal__title">
-					<h3>Войти в личный кобинет</h3>
+					<span>Войти в личный кобинет</span>
 				</div>
 				<div class="modal__field form-group row">
 					<div class="col-sm-12">
@@ -65,7 +65,7 @@
 						:error="errorText.notificationText" 
 						:message="errorText.massageNotPassword" />
 				</div>
-				<div class="modal__field form-group row mt-5">
+				<div class="modal__field modal__button-wrapper form-group row mt-5">
 					<div class="modal__button col-sm-12">
 						<button type="submit" class="btn" >Войти</button>
 					</div>
@@ -124,6 +124,7 @@ export default {
 			if (result) {
 				this.$store.commit('LOGIN_DATA', this.loginData);
 				this.$router.push('/personal_account');
+				this.$store.commit('LOGIN_MODAL', false);
 			}
 		}
 	},

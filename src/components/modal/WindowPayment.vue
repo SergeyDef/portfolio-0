@@ -9,7 +9,9 @@
 					<h3>Oплата курса</h3>
 				</div>
 				<div class="modal__field form-group row">
-
+					<div class="modal__button col-sm-12">
+						<button type="submit" class="btn" >Войти</button>
+					</div>
 				</div>
 			</form>
 		</div>
@@ -17,11 +19,11 @@
 </template>
 
 <script>
-	// import { validationMixin } from 'vuelidate'
-	// import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
-	// import ErrorForm from '@/components/ErrorForm.vue'
+	import { validationMixin } from 'vuelidate'
+	import {} from 'vuelidate/lib/validators'
 
 export default {
+	mixins: [validationMixin],
 	name: 'WindowPayment',
 	components:{
 	},
@@ -29,16 +31,31 @@ export default {
 		msg: String
 	},
 	data() {
-		return {}
+		return {
+			// dataPaymant: []
+		}
 	},
 	methods: {
 		closeModalWindow: function () {
 			this.$store.commit('PAYMENT_WINDOW', false);
 		},
+		sendData: function () {
+			if (this.$v.$invalid) {
+				this.$v.loginData.$touch();
+			}
+
+			let result = true;
+
+			if (result) {
+				this.$router.push('/personal_account');
+				this.$store.commit('PAYMENT_WINDOW', false);
+			}
+		}
 	},
 	mounted() {
 	},
 	validations: {
+		// dataPaymant: {}
 	}
 }
 </script>

@@ -27,8 +27,8 @@
 				</li>
 			</ul>
 		</div>
-		<normal-header class="header__additionally" v-if="pageIndicator" ></normal-header>
-		<account-header class="header__additionally" v-else-if="!pageIndicator"></account-header>
+		<normal-header class="header__additionally" v-if="!$store.getters.GET_PAGE_INDICATOR" ></normal-header>
+		<account-header class="header__additionally" v-else-if="$store.getters.GET_PAGE_INDICATOR"></account-header>
 
 		<div class="nav_adaptiv" v-if="showNavAdaptiv">
 			<div class="nav_adaptiv__close" id="1" @click="closeMenu">
@@ -93,13 +93,13 @@
 			}
 		},
 		mounted(){
-			let page = this.$store.getters.GET_PAGE_INDICATOR;
-			console.log(page);
-			if (page == 'home') {
-				this.pageIndicator = false;
-			} else if (this.page !== 'home') {
-				this.pageIndicator = true;
-			}
+			// let page = this.$store.getters.GET_PAGE_INDICATOR;
+			// console.log(page);
+			// if (page == 'home') {
+			// 	this.pageIndicator = false;
+			// } else if (this.page !== 'home') {
+			// 	this.pageIndicator = true;
+			// }
 		}
 	}
 </script>

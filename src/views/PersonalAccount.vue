@@ -2,15 +2,15 @@
 	<div class="account">
 		<div class="container-fluid">
 			<div class="row account__wrapper">
-				<aside class="col-2 col-sm-2 col-md-1 col-xl-2 account__menu">
+				<aside class="col-2 col-sm-1 col-md-1 col-xl-2 account__menu">
 					<course-menu></course-menu>
 				</aside>
 				<main 
-					class="col-8 col-sm-8 col-md-6 col-xl-6 pt-5 account__content" >
+					class="col-8 col-sm-10 col-md-6 col-xl-6 pt-5 account__content" >
 					<router-view></router-view>
 <!-- 					<course-course></course-course> -->
 				</main>
-				<aside class="col-2 col-sm-2 col-md-5 col-xl-4 account__chat chat">
+				<aside class="col-2 col-sm-1 col-md-5 col-xl-4 account__chat chat">
 					<div class="m-auto chat__block">
 						<div>
 							<h3>Чат</h3>
@@ -64,7 +64,7 @@ export default {
 	},
 	computed: {
 			page() {
-			return this.$route.meta
+			return this.$route.meta.page
 		}
 	},
 	mounted(){
@@ -167,6 +167,9 @@ export default {
 	@media (max-width: 967px){
 		.account{
 			margin-top: 35px;
+			&__chat{
+				padding: 0 5px;
+			}
 		}
 	}
 	@media (max-width: 780px){

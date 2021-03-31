@@ -1,7 +1,7 @@
 
 export default{
 	state: {
-		pageIndicator: '',
+		pageIndicator: false,
 	},
 	getters: {
 		GET_PAGE_INDICATOR : (state) =>{
@@ -10,8 +10,15 @@ export default{
 	},
 	mutations: {
 		GET_PAGE_INDICATOR: (state, payloade) => {
-			console.log(payloade);
-			state.pageIndicator = payloade;
+			let indicator;
+			if (payloade == 'home') {
+				indicator = false;
+			} else if (payloade == 'account') {
+				indicator = true;
+			} else {
+				indicator = false;
+			}
+			state.pageIndicator = indicator;
 		}
 	},
 	actions: {

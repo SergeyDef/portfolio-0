@@ -6,15 +6,15 @@
 			</div>
 			<form class="modal__form" @submit.prevent="sendData">
 				<div class="modal__title">
-					<h3>Регистрация и оплата курса</h3>
+					<span>Регистрация и оплата курса</span>
 				</div>
 				<div class="modal__field form-group row">
-					<div class="col-sm-6">
-						<label for="name" class="login__label"><span>Имя</span></label>
+					<div class="col-sm-6 modal__container">
+						<label for="name" class="modal__label"><span>Имя</span></label>
 						<input 
 							type="text" 
 							name="name" 
-							class="form-control login__input modal__input" 
+							class="form-control modal__input" 
 							placeholder="" 
 							v-model.trim="userData.name"
 							:class="$v.userData.name.$dirty && !$v.userData.name.required ? 'modal__error' : ''"/>
@@ -26,13 +26,26 @@
 							v-else-if="$v.userData.name.$dirty && !$v.userData.name.minLength" 
 							:error="errorText.notificationText" 
 							:message="errorText.messageName" />
+						<div class="modal__login">
+							<input 
+								type="checkbox"
+								checked="checked" 
+								class="form-check-input" 
+								name="name_box"
+								:value="userData.phone"
+								@click="test" 
+								v-model="userData.login" />
+						</div>
+						<div class="modal__message px-2 py-1" >
+							<span class="m-auto">выбор логина</span>
+						</div>
 					</div>
-					<div class="col-sm-6">
-						<label for="surname" class="login__label"><span>Фамилия</span></label>
+					<div class="col-sm-6 modal__container">
+						<label for="surname" class="modal__label"><span>Фамилия</span></label>
 						<input 
 							type="text" 
 							name="surname" 
-							class="form-control login__input modal__input" 
+							class="form-control modal__input" 
 							placeholder=""
 							v-model.trim="userData.surname"
 							:class="$v.userData.surname.$dirty && (!$v.userData.surname.required || !$v.userData.surname.minLength) ? 'modal__error' : ''" />
@@ -44,15 +57,27 @@
 							v-else-if="$v.userData.surname.$dirty && !$v.userData.surname.minLength" 
 							:error="errorText.notificationText" 
 							:message="errorText.messageName" />
+						<div class="modal__login">
+							<input 
+								type="checkbox"
+								class="form-check-input" 
+								name="surname_box"
+								:value="userData.phone"
+								@click="test" 
+								v-model="userData.login" />
+						</div>
+						<div class="modal__message px-2 py-1" >
+							<span class="m-auto">выбор логина</span>
+						</div>
 					</div>
 				</div>
 				<div class="modal__field form-group row">
-					<div class="col-sm-6">
-						<label for="phone" class="login__label"><span>Телефон</span></label>
+					<div class="col-sm-6 modal__container">
+						<label for="phone" class="modal__label"><span>Телефон</span></label>
 						<input 
 							type="text" 
 							name="phone" 
-							class="form-control login__input modal__input" 
+							class="form-control modal__input" 
 							placeholder="" 
 							v-model.trim="userData.phone" 
 							:class="$v.userData.phone.$dirty && (!$v.userData.phone.required || !$v.userData.phone.phone) ? 'modal__error' : ''" 
@@ -62,13 +87,26 @@
 							:error="errorText.notificationText" 
 							:message="errorText.messageLength" />
 						<error-form v-else-if="$v.userData.phone.$dirty && !$v.userData.phone.phone" :error="errorText.notificationText" :message="errorText.messagePhone" />
+						<div class="modal__login">
+							<input 
+								type="checkbox"
+								checked="checked" 
+								class="form-check-input" 
+								name="phone_box"
+								:value="userData.phone"
+								@click="test" 
+								v-model="userData.login" />
+						</div>
+						<div class="modal__message px-2 py-1" >
+							<span class="m-auto">выбор логина</span>
+						</div>
 					</div>
-					<div class="col-sm-6">
-						<label for="email" class="login__label"><span>Email</span></label>
+					<div class="col-sm-6 modal__container">
+						<label for="email" class="modal__label"><span>Email</span></label>
 						<input 
 							type="text" 
 							name="email" 
-							class="form-control login__input modal__input" 
+							class="form-control modal__input" 
 							placeholder="" 
 							v-model.trim="userData.email" 
 							:class="$v.userData.email.$dirty && (!$v.userData.email.required || !$v.userData.email.email) ? 'modal__error' : ''" />
@@ -80,6 +118,17 @@
 							v-else-if="$v.userData.email.$dirty && !$v.userData.email.email" 
 							:error="errorText.notificationText" 
 							:message="errorText.messageEmail" />
+						<div class="modal__login">
+							<input 
+								type="checkbox"
+								checked="checked" 
+								class="form-check-input" 
+								name="email_box"
+								v-model="userData.login" />
+						</div>
+						<div class="modal__message px-2 py-1">
+							<span class="m-auto">выбор логина</span>
+						</div>
 					</div>
 				</div>
 				<div class="modal__field form-group row">
@@ -126,7 +175,7 @@
 							:message="errorText.massageNotPassword" />
 					</div>
 				</div>
-				<div class="modal__field form-group row mt-5">
+				<div class="modal__field modal__button-wrapper form-group row mt-5">
 					<div class="modal__button col-sm-12">
 						<button type="submit" class="btn" :disabled="!$v.userData.consent.$model">Перейти к оплате</button>
 					</div>
@@ -173,6 +222,7 @@ export default {
 				password: null,
 				repeatPassword: null,
 				consent: true,
+				login: null,
 			},
 			closeModal: false,
 			errorText: {
@@ -185,10 +235,14 @@ export default {
 				massageNotPassword: 'пароли не совпадают',
 				messagePhone: 'не корректный телефон',
 				messageEmail: 'не корректный email',
-			}
+			},
+			indicatorMessage: false,
 		}
 	},
 	methods: {
+		test: function () {
+			console.log(this.userData.login);
+		},
 		closeModalWindow: function () {
 			this.$store.commit('REGISTRATION_WINDOW', this.closeModal);
 		},
@@ -224,7 +278,7 @@ export default {
 
 				this.$v.userData.$reset();
 			}
-		}
+		},
 	},
 	mounted() {
 	},
@@ -252,5 +306,30 @@ export default {
 
 	.registration{
 		width: 660px;
+	}
+	@media (max-width: 967px){
+		.registration{
+			width: 600px;
+		}
+	}
+	@media (max-width: 667px){
+		.registration{
+			width: 460px;
+		}
+	}
+	@media (max-width: 567px){
+		.registration{
+			width: 460px;
+		}
+	}
+	@media (max-width: 467px){
+		.registration{
+			width: 360px;
+		}
+	}
+	@media (max-width: 367px){
+		.registration{
+			width: 300px;
+		}
 	}
 </style>
